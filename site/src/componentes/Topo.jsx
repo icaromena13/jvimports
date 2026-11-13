@@ -41,7 +41,8 @@ export function BotaoConversa({ texto, mensagem, grande = false, clara = false, 
   }
   const canal = canalConversa()
   return (
-    <a className={`pilula ${grande ? 'pilula--grande' : ''} ${clara ? 'pilula--clara' : ''}`} href={linkConversa(mensagem)} target="_blank" rel="noopener" onPointerMove={mover}>
+    // compacto (topo) é ação de apoio: azul. Grande (hero, final) é a ação principal: laranja.
+    <a className={`pilula ${grande ? 'pilula--grande' : ''} ${clara ? 'pilula--clara' : ''} ${compacto ? 'pilula--azul' : ''}`} href={linkConversa(mensagem)} target="_blank" rel="noopener" onPointerMove={mover}>
       <Icone nome={canal === 'WhatsApp' ? 'whatsapp' : 'instagram'} />
       <span>{texto || (compacto ? 'Falar com a JV' : `Chamar no ${canal}`)}</span>
       {!compacto && <Icone nome="seta" className="pilula__seta" />}

@@ -15,3 +15,6 @@ site/.claude/
 
 *.log
 .DS_Store
+
+# prints de revisão para o cliente
+/previas/

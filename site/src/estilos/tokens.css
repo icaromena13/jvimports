@@ -71,10 +71,32 @@
   --shadow-md-2: rgba(0, 0, 0, 0.15) 0px 2px 16px 0px;
   --shadow-subtle-2: rgba(255, 255, 255, 0.36) 0px 1px 0px 0px inset;
 
-  /* Camada JV sobre os tokens: troca só as cores de marca */
-  --color-ink: #0b1b30;          /* títulos: azul-marinho quase preto, puxado do escudo */
-  --color-charcoal: #012849;     /* pílulas e blocos escuros: o azul-marinho da JV */
-  --color-body-gray: #657080;    /* cinza do Bevel, um passo mais escuro e azulado (contraste 5:1) */
-  --color-accent: #fc6236;       /* o laranja do escudo, em doses raras */
-  --gradient-hero-sky: linear-gradient(180deg, #d2e5ff 0%, #e6efff 38%, #fff3ea 100%);
+  /* ---------------------------------------------------------------------------------------
+     Camada JV: direção de arte azul-escuro + branco, laranja como destaque.
+     Proporção-alvo: ~60% branco (respiro), ~32% família azul (identidade), ≤8% laranja (ação).
+     Contraste (WCAG) medido: título azul-900/branco 15:1 · corpo/branco 7:1 · corpo/nuvem 6:1 ·
+     azul-300/azul-950 7,3:1 · azul-950 sobre laranja 5,8:1 (por isso os botões laranja levam
+     texto azul, e não branco, que daria 3:1) · laranja/branco 3:1 (só ícone, borda e detalhe,
+     nunca texto pequeno sobre claro).
+     --------------------------------------------------------------------------------------- */
+  --azul-950: #011a31;   /* fundos profundos: entrega, rodapé */
+  --azul-900: #012849;   /* a cor da marca: títulos, botões secundários, blocos de destaque */
+  --azul-800: #0a3a66;   /* degradês e hover sobre azul */
+  --azul-700: #1d4f87;   /* ícones e detalhes sobre fundos claros */
+  --azul-300: #93a9c6;   /* texto secundário sobre azul-escuro */
+  --azul-200: #c9d7e9;   /* bordas e divisórias fortes */
+  --azul-100: #e6edf6;   /* superfície "nuvem": cartões */
+  --azul-50: #f3f6fb;    /* superfície alternada e itens de lista */
+  --branco: #fcfdff;
+  --texto: #4a5a70;      /* corpo de texto sobre claro */
+  --texto-suave: #64748a;/* legendas e segundo tom dos títulos */
+  --laranja-500: #fc6236;/* CTA, ícones-chave, progresso, o escudo */
+  --laranja-400: #ff7a52;/* hover do CTA */
+  --laranja-50: #fff0ea; /* fundo raro de ícone em destaque */
+
+  --color-ink: var(--azul-900);
+  --color-charcoal: var(--azul-900);
+  --color-body-gray: var(--texto);
+  --color-accent: var(--laranja-500);
+  --gradient-hero-sky: linear-gradient(180deg, #d3e2f5 0%, #e9f0f9 45%, #fcfdff 100%);
 }

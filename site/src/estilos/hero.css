@@ -26,7 +26,7 @@
 
 .hero__tunel { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 80%; opacity: 0; transition: opacity 1.6s var(--suave) 0.3s; }
 .hero.in .hero__tunel { opacity: 1; }
-.hero__tunel.sem-webgl { background: radial-gradient(60% 18% at 50% 52%, #fff, rgba(255, 171, 148, 0.7) 40%, rgba(142, 197, 255, 0.5) 60%, transparent 75%); opacity: 1; }
+.hero__tunel.sem-webgl { background: radial-gradient(60% 18% at 50% 52%, #fff, rgba(147, 169, 198, 0.6) 40%, rgba(29, 79, 135, 0.25) 60%, transparent 75%); opacity: 1; }
 
 .hero__texto {
   position: relative;
@@ -43,6 +43,13 @@
 .hero__selo { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; color: var(--cinza); letter-spacing: 0.01em; }
 .hero__selo i { width: 3px; height: 3px; border-radius: 50%; background: var(--cinza-claro); }
 .hero__selo-escudo { width: 13px; height: 15px; }
+
+/* grifo laranja desenhado sob "Maceió": o único laranja do título, aparece na entrada */
+.titulo--hero .linha-mascara { padding-bottom: 0.22em; margin-bottom: -0.22em; }
+.hero__grifo { position: relative; display: inline-block; }
+.hero__grifo svg { position: absolute; left: -2%; right: -2%; bottom: -0.16em; width: 104%; height: 0.32em; overflow: visible; }
+.hero__grifo path { fill: none; stroke: var(--laranja-500); stroke-width: 7; stroke-linecap: round; stroke-dasharray: 420; stroke-dashoffset: 420; transition: stroke-dashoffset 1.2s var(--suave) 1.25s; }
+.hero.in .hero__grifo path { stroke-dashoffset: 0; }
 
 /* Palco dos aparelhos: começa espiando no pé da tela e sobe do túnel */
 .hero__aparelhos {
@@ -79,13 +86,13 @@
 }
 .hero__chip b { display: block; font-weight: 600; letter-spacing: -0.01em; }
 .hero__chip small { display: block; font-size: 12px; color: var(--cinza); }
-.hero__chip-icone { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: var(--pessego); color: var(--laranja-escuro); }
+/* ícones dos selos na família azul; só o da entrega (a promessa central) leva o laranja */
+.hero__chip-icone { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: var(--azul-100); color: var(--azul-700); }
 .hero__chip-icone svg { width: 19px; height: 19px; }
 .hero__chip--0 { left: -330px; top: 10%; }
 .hero__chip--1 { left: -300px; top: 50%; }
-.hero__chip--1 .hero__chip-icone { background: var(--menta); color: #1c8a52; }
 .hero__chip--2 { right: -250px; top: 16%; }
-.hero__chip--2 .hero__chip-icone { background: var(--azul-claro); color: var(--marinho-2); }
+.hero__chip--2 .hero__chip-icone { background: var(--laranja-50); color: var(--laranja-500); }
 .hero__chip > span:last-child { animation: boia 6s ease-in-out infinite; }
 
 @keyframes boia { 0%, 100% { translate: 0 0; } 50% { translate: 0 -4px; } }
@@ -97,7 +104,7 @@
   inset: 0;
   background:
     radial-gradient(90% 55% at 80% 105%, rgba(252, 98, 54, 0.95), transparent 70%),
-    radial-gradient(70% 45% at 0% 70%, rgba(65, 94, 238, 0.55), transparent 70%),
+    radial-gradient(70% 45% at 0% 70%, rgba(29, 79, 135, 0.6), transparent 70%),
     linear-gradient(180deg, #0b2a55 0%, #012849 45%, #0a1c36 100%);
 }
 .bloqueio__fundo::after { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 850 950'%3E%3Cpath fill='none' stroke='white' stroke-opacity='.09' stroke-width='8' d='M797 297 C805 420 795 560 745 665 C680 790 560 860 424 905 C340 860 250 790 200 735 C160 690 135 650 127 623 M70 172 Q425 -130 797 177 L800 263'/%3E%3C/svg%3E") center 62% / 120% no-repeat; }

@@ -178,7 +178,7 @@ export function Final() {
 export function Rodape() {
   const ir = (e, alvo) => { if (alvo.startsWith('#')) { e.preventDefault(); irPara(alvo) } }
   return (
-    <footer className="rodape">
+    <footer className="rodape" data-fundo-escuro>
       <div className="container rodape__grade">
         <div className="rodape__marca">
           <Marca />

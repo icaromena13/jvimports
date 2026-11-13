@@ -1,10 +1,11 @@
 /* Entrega: seção azul-marinho com o celular fixo que conta a conversa (o "Bevel Intelligence") */
 .entrega { position: relative; margin-top: var(--secao); padding: var(--secao) 0 16px; background: var(--marinho-fundo); color: #f1f4f8; }
-.entrega::before { content: ''; position: absolute; inset: 0 0 auto; height: 520px; background: radial-gradient(50% 70% at 50% 0%, rgba(65, 94, 238, 0.22), transparent 70%); pointer-events: none; }
+.entrega::before { content: ''; position: absolute; inset: 0 0 auto; height: 520px; background: radial-gradient(50% 70% at 50% 0%, rgba(29, 79, 135, 0.4), transparent 70%); pointer-events: none; }
 .entrega__topo { position: relative; display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; padding-bottom: clamp(56px, 6vw, 88px); }
 .entrega__rotulo { font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--coral); }
-.entrega .titulo .apagado { color: #6f819b; }
-.entrega__topo .texto { color: #a7b5c8; max-width: 40ch; }
+.entrega__topo .titulo { color: #fff; }
+.entrega__topo .titulo .apagado { color: var(--azul-300); }
+.entrega__topo .texto { color: var(--azul-300); max-width: 40ch; }
 
 /* os quatro passos girando sob o foco de luz */
 .passos {
@@ -17,15 +18,15 @@
   mask-image: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent);
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent);
 }
-.passos__luz { position: absolute; top: -30px; left: 50%; width: 300px; height: 230px; transform: translateX(-50%); background: linear-gradient(180deg, rgba(170, 195, 255, 0.4), rgba(170, 195, 255, 0.04) 85%); clip-path: polygon(43% 0, 57% 0, 92% 100%, 8% 100%); filter: blur(10px); animation: respira 6s ease-in-out infinite; }
+.passos__luz { position: absolute; top: -30px; left: 50%; width: 300px; height: 230px; transform: translateX(-50%); background: linear-gradient(180deg, rgba(201, 215, 233, 0.36), rgba(201, 215, 233, 0.03) 85%); clip-path: polygon(43% 0, 57% 0, 92% 100%, 8% 100%); filter: blur(10px); animation: respira 6s ease-in-out infinite; }
 @keyframes respira { 0%, 100% { opacity: 0.8; } 50% { opacity: 1; } }
 .passos__trilho { position: absolute; top: 50px; left: 50%; display: flex; gap: var(--gap); transform: translateX(calc(var(--ativo) * -1 * (var(--item) + var(--gap)) - var(--item) / 2)); transition: transform 1s var(--suave); }
 .passo { width: var(--item); display: flex; flex-direction: column; align-items: center; gap: 16px; opacity: 0.32; filter: blur(1.2px); transform: scale(0.84); transition: opacity 0.8s var(--suave), filter 0.8s var(--suave), transform 0.9s var(--mola); }
 .passo.ativo { opacity: 1; filter: none; transform: none; }
 .passo__orbe {
-  --a: #ffd2bf;
-  --b: #fc6236;
-  --c: #6d1d07;
+  --a: #d6e3f5;
+  --b: #2a5d9a;
+  --c: #011a31;
   width: 96px;
   height: 96px;
   border-radius: 50%;
@@ -33,16 +34,18 @@
   place-items: center;
   color: #fff;
   background: radial-gradient(circle at 34% 28%, #fff 0%, var(--a) 16%, var(--b) 52%, var(--c) 100%);
-  box-shadow: inset -10px -12px 22px rgba(0, 0, 0, 0.35), 0 18px 50px -10px color-mix(in srgb, var(--b) 70%, transparent);
+  box-shadow: inset -10px -12px 22px rgba(0, 0, 0, 0.35), 0 18px 50px -10px rgba(29, 79, 135, 0.8);
+  transition: box-shadow 0.8s var(--suave);
 }
-.passo:nth-child(odd) .passo__orbe { --a: #d9e2ff; --b: #5a7cf2; --c: #0d1f55; }
+.passo.ativo .passo__orbe { box-shadow: inset -10px -12px 22px rgba(0, 0, 0, 0.35), 0 0 0 3px var(--laranja-500), 0 18px 50px -10px rgba(252, 98, 54, 0.45); }
 .passo__orbe svg { width: 36px; height: 36px; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)); }
-.passo__nome { padding: 5px 13px; border-radius: 99px; background: rgba(255, 255, 255, 0.08); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1); font-size: 13px; color: #d7deea; }
+.passo__nome { padding: 5px 13px; border-radius: 99px; background: rgba(255, 255, 255, 0.08); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1); font-size: 13px; color: var(--azul-300); transition: color 0.6s, background 0.6s; }
+.passo.ativo .passo__nome { color: #fff; background: rgba(255, 255, 255, 0.14); }
 
 /* cartões que passam sob o celular parado */
 .entrega__cartoes { display: flex; flex-direction: column; gap: 16px; }
 .etapa {
-  --fundo: linear-gradient(160deg, #eff1fb 30%, #e0dafb);
+  --fundo: linear-gradient(160deg, #f6f8fc 30%, #e2eaf5);
   position: relative;
   height: max(132svh, 880px);
   border-radius: var(--raio-cartao);
@@ -50,12 +53,11 @@
   background: var(--fundo);
   color: var(--tinta);
 }
-.etapa--pessego { --fundo: linear-gradient(160deg, #f7f1ee 30%, #ffd6c4); }
-.etapa--azul { --fundo: linear-gradient(160deg, #eef3fb 30%, #d3e4ff); }
-.etapa--menta { --fundo: linear-gradient(160deg, #eef5f3 30%, #cbeedf); }
+.etapa--pessego, .etapa--menta { --fundo: linear-gradient(160deg, #edf2f9 30%, #d4e0f0); }
 .etapa__texto { position: sticky; top: calc(50svh - 150px); z-index: 2; display: flex; flex-direction: column; gap: 16px; max-width: 640px; padding: clamp(36px, 5vw, 80px); }
 .etapa__texto .titulo--display { font-size: clamp(2.4rem, 1.2rem + 3vw, 3.75rem); }
-.etapa__num { font-size: 13px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--laranja-escuro); }
+.etapa__num { font-size: 13px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--azul-700); }
+.etapa__num::before { content: ''; display: inline-block; width: 7px; height: 7px; margin: 0 9px 2px 0; border-radius: 50%; background: var(--laranja-500); vertical-align: middle; }
 .etapa .texto { max-width: 30ch; }
 
 .etapa__fixo { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
@@ -73,14 +75,14 @@
 .flut { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px 10px 10px; border-radius: 16px; background: rgba(255, 255, 255, 0.94); box-shadow: inset 0 1px 0 #fff, var(--sombra-flutua); font-size: 14px; line-height: 1.2; color: var(--tinta); white-space: nowrap; }
 .flut b { display: block; font-weight: 600; letter-spacing: -0.01em; }
 .flut small { display: block; font-size: 12px; color: var(--cinza); }
-.flut__icone { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--menta); color: #1c8a52; }
+.flut__icone { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--azul-100); color: var(--azul-700); }
 .flut__icone svg { width: 18px; height: 18px; }
-.flut--mapa .flut__icone { background: var(--pessego); color: var(--laranja-escuro); }
+.flut--mapa .flut__icone { background: var(--laranja-50); color: var(--laranja-500); }
 .flut--selo { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; background: none; box-shadow: none; padding: 0; }
 
 .selo-pilula { display: inline-block; padding: 1.2cqw 3cqw; border-radius: 99px; background: var(--laranja); color: #fff; font-weight: 700; font-size: 3.5cqw; letter-spacing: 0.01em; text-transform: uppercase; box-shadow: 0 0 0 0.5cqw #fff; transform: rotate(-5deg); }
 .selo-pilula--2 { margin-left: 7cqw; margin-top: -0.6cqw; }
-.flut--selo .selo-pilula { font-size: 16px; padding: 8px 18px; box-shadow: 0 0 0 3px #fff, var(--sombra-flutua); }
+.flut--selo .selo-pilula { font-size: 19px; padding: 8px 18px; box-shadow: 0 0 0 3px #fff, var(--sombra-flutua); }
 .flut--selo .selo-pilula--2 { margin-left: 34px; margin-top: -2px; }
 
 /* WhatsApp dentro do celular */
@@ -133,7 +135,7 @@
 .bolha__pedido-topo { display: flex; align-items: center; gap: 1.6cqw; font-size: 3.9cqw; }
 .bolha__pedido-topo svg { width: 4.4cqw; height: 5cqw; }
 .bolha__pedido-linha { display: flex; align-items: center; gap: 1.4cqw; font-size: 3.3cqw; color: #3b4a54; }
-.bolha__pedido-linha svg { width: 3.4cqw; height: 3.4cqw; color: #1c8a52; flex: none; }
+.bolha__pedido-linha svg { width: 3.4cqw; height: 3.4cqw; color: var(--azul-700); flex: none; }
 .bolha__mapa { display: block; width: 56cqw; margin-bottom: 1.6cqw; border-radius: 2.4cqw; overflow: hidden; background: #e6edf4; }
 .bolha__mapa svg { display: block; width: 100%; height: auto; }
 .mapa__ruas { fill: none; stroke: #fff; stroke-width: 5; }

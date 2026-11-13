@@ -143,8 +143,8 @@
   color: rgba(255, 255, 255, 0.92);
   text-align: center;
   background:
-    radial-gradient(120% 70% at 85% 0%, rgba(252, 98, 54, 0.95), transparent 60%),
-    linear-gradient(170deg, var(--marinho-2), var(--marinho) 60%);
+    radial-gradient(90% 55% at 90% 0%, rgba(252, 98, 54, 0.55), transparent 60%),
+    linear-gradient(170deg, var(--azul-800), var(--azul-900) 55%, var(--azul-950));
 }
 .foto-cliente__escudo { position: absolute; width: 78%; top: 6%; left: 50%; transform: translateX(-50%) rotate(calc((var(--n) - 4) * 3deg)); color: rgba(255, 255, 255, 0.14); }
 .foto-cliente__vazia span { position: relative; font-size: 11px; line-height: 1.35; letter-spacing: 0.02em; color: rgba(255, 255, 255, 0.7); }

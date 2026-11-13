@@ -184,7 +184,7 @@ export function Pedido() {
 const PECAS = [
   { icone: 'ipad', x: 50, y: 6, cor: '#fff' },
   { icone: 'macbook', x: 76, y: 22, cor: '#fff' },
-  { icone: 'relogio', x: 58, y: 44, cor: 'var(--laranja)', claro: true },
+  { icone: 'relogio', x: 58, y: 44, cor: 'var(--azul-900)', claro: true },
   { icone: 'airpods', x: 84, y: 60, cor: '#fff' },
   { icone: 'cabo', x: 52, y: 76, cor: '#fff' },
   { icone: 'android', x: 72, y: 88, cor: 'var(--marinho)', claro: true },
@@ -220,7 +220,7 @@ export function Ecossistema() {
         </Celular>
         {PECAS.map((p, i) => (
           <span key={i} className={`eco__peca ${p.claro ? 'eco__peca--cor' : ''}`} style={{ left: `${p.x}%`, top: `${p.y}%`, '--fundo': p.cor }} aria-hidden="true">
-            {i === 2 ? <Escudo cor="#fff" /> : <Icone nome={p.icone} />}
+            {i === 2 ? <Escudo cor="var(--laranja)" /> : <Icone nome={p.icone} />}
           </span>
         ))}
       </div>

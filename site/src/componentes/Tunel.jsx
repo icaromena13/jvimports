@@ -10,18 +10,19 @@ float h(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
 float n(vec2 p){ vec2 i = floor(p), f = fract(p); f = f*f*(3.0-2.0*f);
   return mix(mix(h(i), h(i+vec2(1,0)), f.x), mix(h(i+vec2(0,1)), h(i+vec2(1,1)), f.x), f.y); }
 float fbm(vec2 p){ float v = 0.0, a = 0.5; for(int i=0;i<4;i++){ v += a*n(p); p = p*2.03 + 7.1; a *= 0.5; } return v; }
+// família azul da marca, do azul-escuro à névoa, com um fio estreito de laranja
 vec3 paleta(float x){
+  vec3 marinho = vec3(0.04, 0.16, 0.32);
+  vec3 azul = vec3(0.11, 0.31, 0.53);
+  vec3 ceu = vec3(0.56, 0.71, 0.89);
+  vec3 nevoa = vec3(0.86, 0.91, 0.97);
   vec3 laranja = vec3(0.988, 0.384, 0.212);
-  vec3 coral = vec3(1.0, 0.67, 0.58);
-  vec3 ceu = vec3(0.56, 0.76, 1.0);
-  vec3 azul = vec3(0.16, 0.36, 0.86);
-  vec3 lilas = vec3(0.73, 0.68, 1.0);
   x = fract(x);
-  if (x < 0.2) return mix(laranja, coral, x/0.2);
-  if (x < 0.4) return mix(coral, ceu, (x-0.2)/0.2);
-  if (x < 0.6) return mix(ceu, azul, (x-0.4)/0.2);
-  if (x < 0.8) return mix(azul, lilas, (x-0.6)/0.2);
-  return mix(lilas, laranja, (x-0.8)/0.2);
+  if (x < 0.3) return mix(marinho, azul, x/0.3);
+  if (x < 0.55) return mix(azul, ceu, (x-0.3)/0.25);
+  if (x < 0.8) return mix(ceu, nevoa, (x-0.55)/0.25);
+  if (x < 0.88) return mix(nevoa, laranja, (x-0.8)/0.08);
+  return mix(laranja, marinho, (x-0.88)/0.12);
 }
 void main(){
   vec2 uv = gl_FragCoord.xy / uRes;

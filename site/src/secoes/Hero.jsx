@@ -12,6 +12,22 @@ const hoje = () => {
   return d.charAt(0).toUpperCase() + d.slice(1)
 }
 
+// sublinha uma palavra do título com o traço laranja desenhado à mão
+function grifar(linha, palavra) {
+  const i = linha.indexOf(palavra)
+  if (i < 0) return linha
+  return (
+    <>
+      {linha.slice(0, i)}
+      <span className="hero__grifo">
+        {palavra}
+        <svg viewBox="0 0 400 40" preserveAspectRatio="none" aria-hidden="true"><path d="M6 26 C90 12 210 8 394 18" /></svg>
+      </span>
+      {linha.slice(i + palavra.length)}
+    </>
+  )
+}
+
 function TelaBloqueio() {
   return (
     <div className="bloqueio">
@@ -81,7 +97,7 @@ export function Hero() {
         <Tunel className="hero__tunel" progresso={progresso} />
         <div className="hero__texto">
           <h1 className="titulo titulo--hero">
-            {HERO.titulo.map((l, i) => <span className="linha-mascara" key={i}><span style={{ '--i': i + 2 }}>{l}</span></span>)}
+            {HERO.titulo.map((l, i) => <span className="linha-mascara" key={i}><span style={{ '--i': i + 2 }}>{grifar(l, 'Maceió')}</span></span>)}
           </h1>
           <p className="texto centro" data-revela style={{ '--i': 5 }}>{HERO.texto}</p>
           <div className="hero__acoes" data-revela style={{ '--i': 6 }}>
