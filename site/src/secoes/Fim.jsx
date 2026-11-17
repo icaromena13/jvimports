@@ -6,6 +6,7 @@ import { Escudo, Marca } from '../componentes/Marca.jsx'
 import { Escudo3D } from '../componentes/Escudo3D.jsx'
 import { BotaoConversa } from '../componentes/Topo.jsx'
 import { useRevela, irPara } from '../lib/rolagem.js'
+import { useTunel } from '../lib/tunel.js'
 
 /* ---------- E tem mais: lista que avança sozinha + celular ---------- */
 const DURACAO = 4200
@@ -119,24 +120,31 @@ export function Seguranca() {
   )
 }
 
-/* ---------- Mosaico de clientes ---------- */
-const COLUNAS = [[0, 1], [2, 3, 4], [5], [6, 7], [8], [0, 3], [1, 4, 6], [2, 7]]
+/* ---------- Galeria: o dono parado, as cartas dos clientes flutuando atrás ---------- */
+// uma carta por foto de cliente
+const CARTAS = CLIENTES.fotos.map((_, i) => i)
 export function Galeria() {
   const ref = useRevela()
+  const palco = useRef(null)
+  useTunel(palco, { desktop: CARTAS.length })
   return (
     <section className="galeria" ref={ref} aria-labelledby="galeria-titulo">
-      <div className="galeria__mosaico" aria-hidden="true">
-        {COLUNAS.map((col, c) => (
-          <div key={c} className="galeria__coluna" style={{ '--c': c }}>
-            {col.map((i, j) => <FotoCliente key={j} src={CLIENTES.fotos[i]} indice={i} className="galeria__foto" rotulo={false} />)}
-          </div>
-        ))}
-      </div>
-      <div className="galeria__texto">
+      <div className="galeria__palco" ref={palco}>
+        <div className="galeria__tunel" data-tunel aria-hidden="true">
+          {CARTAS.map((i) => (
+            <div className="galeria__carta" data-carta key={i}>
+              <div className="galeria__flutua" style={{ '--d': `${-i * 1.3}s`, '--t': `${6 + (i % 4)}s` }}>
+                <FotoCliente src={CLIENTES.fotos[i % CLIENTES.fotos.length]} indice={i} className="galeria__foto" rotulo={false} />
+              </div>
+            </div>
+          ))}
+        </div>
         <figure className="galeria__dono" data-revela style={{ '--i': 0 }}>
           <img src={DONO.foto} alt={DONO.alt} width="920" height="830" loading="lazy" decoding="async" />
           <figcaption><strong>{DONO.nome}</strong><span>{DONO.legenda}</span></figcaption>
         </figure>
+      </div>
+      <div className="galeria__texto">
         <h2 id="galeria-titulo" className="titulo titulo--display centro">
           {GALERIA.titulo.map((l, i) => <span className="linha-mascara" key={i}><span style={{ '--i': i }}>{l}</span></span>)}
         </h2>

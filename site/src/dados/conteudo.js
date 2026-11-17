@@ -46,17 +46,17 @@ export const LINHA = {
   itens: ['iPhone', 'iPad', 'MacBook', 'Apple Watch', 'AirPods', 'Android'],
 }
 
+const QUANTAS_FOTOS = 10
 export const CLIENTES = {
   selos: [
     { linha1: 'Desde', linha2: '2020' },
     { linha1: 'Toda', linha2: 'Maceió' },
   ],
   titulo: ['Obrigado pela', 'preferência, Maceió'],
-  // PENDENTE: fotos reais dos clientes em public/clientes (cliente-01.jpg até cliente-09.jpg).
-  // Quando elas estiverem lá, troque "prontas" para true; antes disso o site nem procura os
-  // arquivos (evita os erros 404 no console) e mostra as molduras da marca.
-  prontas: false,
-  fotos: Array.from({ length: 9 }, (_, i) => `clientes/cliente-${String(i + 1).padStart(2, '0')}.jpg`),
+  // Fotos reais dos clientes em public/clientes (cliente-01.jpg em diante, retrato 4:5, 720 x 900).
+  // Para acrescentar mais, é só colocar o arquivo seguinte na pasta e aumentar QUANTAS_FOTOS.
+  prontas: true,
+  fotos: Array.from({ length: QUANTAS_FOTOS }, (_, i) => `clientes/cliente-${String(i + 1).padStart(2, '0')}.jpg`),
 }
 
 export const APARELHOS = {
