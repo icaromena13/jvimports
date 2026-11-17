@@ -209,7 +209,7 @@ export function Ecossistema() {
           <div className="app app--eco">
             <div className="app__topo"><Icone nome="voltar" /><b>Meus aparelhos</b><Icone nome="mais" /></div>
             <div className="eco__abas"><span className="ativa">Todos</span><span>Apple</span><span>Acessórios</span></div>
-            <p className="eco__mes">Comprados na JV</p>
+            <p className="eco__mes">Comprados com o JV</p>
             {lista.map(([ic, n, s], i) => (
               <div className="eco__item" key={n} style={{ '--i': i }}>
                 <span><Icone nome={ic} /></span>

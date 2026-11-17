@@ -44,7 +44,7 @@ export const HERO = {
 export const BLACK = {
   rotulo: 'Black Friday JV · novembro inteiro',
   titulo: ['Comprou,', 'ganhou.'],
-  texto: 'Em novembro, qualquer celular comprado na JV sai com valores incríveis e um kit de brindes completo.',
+  texto: 'Em novembro, qualquer celular comprado com o JV sai com valores incríveis e um kit de brindes completo.',
   brindes: [
     { icone: 'garrafa', titulo: 'Garrafa térmica personalizada', texto: 'do seu jeito, o presente especial', destaque: true },
     { icone: 'capa', titulo: 'Capinha', texto: 'para o seu modelo' },
@@ -105,7 +105,7 @@ export const APARELHOS = {
 
 export const PEDIDO = {
   titulo: ['Monte seu', 'pedido'],
-  texto: 'Escolha o aparelho e o estado. A mensagem chega pronta no WhatsApp da JV.',
+  texto: 'Escolha o aparelho e o estado. A mensagem chega pronta no WhatsApp do JV.',
   aparelhos: ['iPhone', 'iPad', 'MacBook', 'Apple Watch', 'AirPods'],
   estados: ['Lacrado', 'Seminovo', 'Tanto faz'],
   extras: ['Quero entrega hoje', 'Quero dar meu usado na troca', 'Parcelar em até 18x'],
@@ -176,7 +176,7 @@ export const ENTREGA = {
 
 export const SERVICOS = {
   titulo: 'E tem mais',
-  texto: 'O que a JV faz pelo seu aparelho depois da compra:',
+  texto: 'O que o JV faz pelo seu aparelho depois da compra:',
   // PENDENTE: confirmar a lista e o que é o serviço "Laser" do destaque do Instagram
   itens: [
     { id: 'tela', titulo: 'Troca de tela', texto: 'Tela trincada ou com mancha volta a ficar como nova.' },
@@ -212,7 +212,7 @@ export const DUVIDAS = {
   rotulo: 'Perguntas frequentes',
   titulo: ['Ficou alguma', 'dúvida?'],
   texto: 'As perguntas que mais chegam pra gente, respondidas aqui.',
-  cta: 'Perguntar para a JV',
+  cta: 'Perguntar para o JV',
   itens: [
     { p: 'Quais são as formas de pagamento?', r: 'Pix, dinheiro e cartão de crédito ou débito. No cartão, você parcela em até 18x.' },
     { p: 'Vocês aceitam meu aparelho usado na troca?', r: 'Sim, e sem custo de frete. Mande o modelo e o estado do seu aparelho que a gente avalia e abate o valor do novo.' },
@@ -234,7 +234,7 @@ export const RODAPE = {
   grupos: [
     { titulo: 'Aparelhos', links: [['iPhone lacrado', '#aparelhos'], ['iPhone seminovo', '#aparelhos'], ['iPad e MacBook', '#ecossistema'], ['Apple Watch e AirPods', '#ecossistema']] },
     { titulo: 'Atendimento', links: [['Como funciona a entrega', '#entrega'], ['Assistência técnica', '#assistencia'], ['Monte seu pedido', '#pedido'], ['Perguntas frequentes', '#duvidas']] },
-    { titulo: 'Redes', links: [['Instagram', INSTAGRAM], ['Fale com a JV', 'conversa']] },
+    { titulo: 'Redes', links: [['Instagram', INSTAGRAM], ['Fale com o JV', 'conversa']] },
   ],
   local: 'Maceió, Alagoas',
   aviso: 'iPhone, iPad, MacBook, Apple Watch e AirPods são marcas da Apple Inc. A JV Imports é uma revenda independente.',
