@@ -115,12 +115,14 @@ export function Pedido() {
   const [extras, setExtras] = useState(['Quero entrega hoje'])
   const [enviando, setEnviando] = useState(false)
   const alternar = (x) => setExtras((l) => (l.includes(x) ? l.filter((y) => y !== x) : [...l, x]))
-  const estadoTxt = estado === 'Tanto faz' ? 'lacrado ou seminovo' : estado.toLowerCase()
+  // AirPods é plural: "uns AirPods lacrados"
+  const plural = aparelho === 'AirPods'
+  const estadoTxt = (estado === 'Tanto faz' ? 'lacrado ou seminovo' : estado.toLowerCase()).replace(/(lacrado|seminovo)/g, plural ? '$1s' : '$1')
   const frases = { 'Quero entrega hoje': 'quero receber hoje', 'Quero dar meu usado na troca': 'quero dar meu usado na troca', 'Parcelar em até 18x': 'quero parcelar no cartão' }
   const partes = PEDIDO.extras.filter((x) => extras.includes(x)).map((x) => frases[x])
   const juntas = partes.length > 1 ? `${partes.slice(0, -1).join(', ')} e ${partes.at(-1)}` : partes[0] || ''
   const extrasTxt = juntas ? ` ${juntas.charAt(0).toUpperCase()}${juntas.slice(1)}.` : ''
-  const msg = `Oi, JV! Vim pelo site. Procuro um ${aparelho} ${estadoTxt}.${extrasTxt} Pode me passar as opções?`
+  const msg = `Oi, JV! Vim pelo site. Procuro ${plural ? 'uns' : 'um'} ${aparelho} ${estadoTxt}.${extrasTxt} Pode me passar as opções?`
   const bolha = useRef(null)
   useEffect(() => {
     if (!bolha.current) return
