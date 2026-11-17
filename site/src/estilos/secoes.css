@@ -413,3 +413,59 @@
   .duvida__corpo p { padding: 0 18px 18px; font-size: 15px; }
 }
 @media (prefers-reduced-motion: reduce) { .duvida__corpo, .duvida__sinal { transition: none; } }
+
+/* Black Friday: cartão azul-marinho; no PC texto e brindes à esquerda, vídeo à direita.
+   No celular a ordem é título → vídeo → brindes, para o vídeo aparecer cedo na rolagem. */
+.black { padding-top: var(--secao); }
+.black__cartao {
+  position: relative; overflow: hidden; border-radius: var(--raio-cartao); color: #fff;
+  display: grid; grid-template-columns: 1.05fr 0.95fr; grid-template-areas: 'texto palco' 'oferta palco';
+  column-gap: clamp(32px, 5vw, 80px); padding: clamp(40px, 5vw, 72px);
+  background: radial-gradient(60% 55% at 85% 40%, rgba(252, 98, 54, 0.28), transparent 70%), radial-gradient(70% 60% at 0% 0%, rgba(29, 79, 135, 0.55), transparent 70%), linear-gradient(150deg, var(--azul-900), var(--azul-950));
+}
+.black__texto { grid-area: texto; align-self: end; display: flex; flex-direction: column; gap: 16px; }
+.black__texto .titulo { color: #fff; }
+.black__texto .texto { color: var(--azul-300); max-width: 34ch; }
+.black__destaque { color: var(--laranja); }
+.black__rotulo { margin: 0; display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--laranja); }
+.black__rotulo i { width: 8px; height: 8px; border-radius: 50%; background: var(--laranja); box-shadow: 0 0 0 0 rgba(252, 98, 54, 0.6); animation: black-pulso 2s ease-out infinite; }
+@keyframes black-pulso { to { box-shadow: 0 0 0 10px rgba(252, 98, 54, 0); } }
+.black__palco { grid-area: palco; display: grid; place-items: center; }
+.black__oferta { grid-area: oferta; display: flex; flex-direction: column; gap: 22px; margin-top: 28px; }
+.black__brindes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.black__brindes li { position: relative; display: flex; align-items: center; gap: 12px; padding: 14px; border-radius: 16px; background: rgba(255, 255, 255, 0.06); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1); }
+.black__brindes li.destaque { grid-column: 1 / -1; padding: 18px; background: linear-gradient(120deg, rgba(252, 98, 54, 0.22), rgba(252, 98, 54, 0.06)); box-shadow: inset 0 0 0 1px rgba(252, 98, 54, 0.55); }
+.black__brindes b { display: block; font-size: 15.5px; font-weight: 600; letter-spacing: -0.01em; }
+.black__brindes li.destaque b { font-size: 18px; }
+.black__brindes small { display: block; margin-top: 2px; font-size: 13px; color: var(--azul-300); }
+.black__brindes em { position: absolute; top: -9px; right: 14px; padding: 3px 10px; border-radius: 99px; background: var(--laranja); color: var(--azul-950); font-size: 11px; font-weight: 800; font-style: normal; letter-spacing: 0.06em; text-transform: uppercase; }
+.black__icone { flex: none; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 12px; background: rgba(255, 255, 255, 0.08); color: var(--laranja); }
+.black__icone svg { width: 22px; height: 22px; }
+.destaque .black__icone { width: 48px; height: 48px; background: var(--laranja); color: #fff; }
+.destaque .black__icone svg { width: 26px; height: 26px; }
+.black__video { position: relative; }
+.black__celular { --w: clamp(250px, 22vw, 310px); }
+.black__tela { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #0b1b2e; }
+.black__som { position: absolute; left: 50%; bottom: 7cqw; z-index: 3; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 2.6cqw; padding: 2.8cqw 4.6cqw; border-radius: 99px; background: rgba(1, 26, 49, 0.62); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #fff; font-size: 4.4cqw; font-weight: 600; white-space: nowrap; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18); transition: background 0.3s; }
+.black__som svg { width: 5.6cqw; height: 5.6cqw; }
+.black__som:not(.ligado) { animation: black-chama 2.4s ease-in-out infinite; }
+.black__som.ligado { background: rgba(1, 26, 49, 0.4); }
+@keyframes black-chama { 50% { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18), 0 0 0 6px rgba(252, 98, 54, 0.35); } }
+.black__play { position: absolute; left: 50%; top: 50%; z-index: 2; width: 18cqw; height: 18cqw; margin: -9cqw 0 0 -9cqw; display: grid; place-items: center; border-radius: 50%; background: rgba(255, 255, 255, 0.9); color: var(--azul-900); pointer-events: none; }
+.black__play svg { width: 7cqw; height: 7cqw; margin-left: 1cqw; }
+.black__fita { position: absolute; top: 12%; right: -18%; z-index: 4; padding: 8px 16px; border-radius: 10px; background: var(--laranja); color: var(--azul-950); font-size: 13px; font-weight: 800; letter-spacing: 0.1em; transform: rotate(8deg); box-shadow: 0 14px 30px -12px rgba(252, 98, 54, 0.7); }
+@media (max-width: 900px) {
+  .black__cartao { grid-template-columns: 1fr; grid-template-areas: 'texto' 'palco' 'oferta'; padding: 36px 22px 28px; }
+  .black__texto { align-self: start; }
+  .black__palco { margin-top: 28px; }
+  .black__celular { --w: min(70vw, 280px); }
+  .black__fita { right: -8%; font-size: 12px; padding: 7px 13px; }
+}
+@media (max-width: 480px) {
+  .black__brindes { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .black__brindes li:not(.destaque) { flex-direction: column; gap: 8px; padding: 14px 6px; text-align: center; }
+  .black__brindes li:not(.destaque) small { display: none; }
+  .black__brindes li:not(.destaque) b { font-size: 14px; }
+  .black__oferta .pilula { width: 100%; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) { .black__rotulo i, .black__som { animation: none; } }

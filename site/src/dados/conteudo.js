@@ -40,6 +40,23 @@ export const HERO = {
   ],
 }
 
+// Black Friday de novembro: vídeo da garrafa + kit de brindes (vale o mês inteiro)
+export const BLACK = {
+  rotulo: 'Black Friday JV · novembro inteiro',
+  titulo: ['Comprou,', 'ganhou.'],
+  texto: 'Em novembro, qualquer celular comprado na JV sai com valores incríveis e um kit de brindes completo.',
+  brindes: [
+    { icone: 'garrafa', titulo: 'Garrafa térmica personalizada', texto: 'do seu jeito, o presente especial', destaque: true },
+    { icone: 'capa', titulo: 'Capinha', texto: 'para o seu modelo' },
+    { icone: 'tela', titulo: 'Película', texto: 'aplicada na entrega' },
+    { icone: 'raio', titulo: 'Carregador', texto: 'pronto para usar' },
+  ],
+  cta: 'Quero meu brinde',
+  mensagem: 'Olá! Vim do site de vocês e quero aproveitar a Black Friday com a garrafa de brinde.',
+  video: 'promo/garrafa.mp4',
+  capa: 'promo/garrafa-capa.jpg',
+}
+
 export const LINHA = {
   titulo: 'Trabalhamos com',
   itens: ['iPhone', 'iPad', 'MacBook', 'Apple Watch', 'AirPods', 'Android'],

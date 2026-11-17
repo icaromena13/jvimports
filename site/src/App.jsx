@@ -4,6 +4,7 @@ import { Aviso } from './componentes/Aviso.jsx'
 import { ESCUDO_TODOS } from './componentes/Marca.jsx'
 import { FOTOS } from './componentes/Aparelhos.jsx'
 import { Hero } from './secoes/Hero.jsx'
+import { BlackFriday } from './secoes/BlackFriday.jsx'
 import { Linha, Clientes } from './secoes/Prova.jsx'
 import { Aparelhos, Pedido, Ecossistema } from './secoes/Vitrine.jsx'
 import { Entrega } from './secoes/Entrega.jsx'
@@ -43,6 +44,7 @@ export default function App() {
       <Topo />
       <main id="main" tabIndex={-1} className={pronto ? 'pronto' : ''}>
         <Hero />
+        <BlackFriday />
         <Linha />
         <Clientes />
         <Aparelhos />

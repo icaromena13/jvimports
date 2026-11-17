@@ -31,6 +31,10 @@ const D = {
   sinal: <><rect x="2" y="15" width="3" height="5" rx="0.8" fill="currentColor" stroke="none" /><rect x="7" y="11.5" width="3" height="8.5" rx="0.8" fill="currentColor" stroke="none" /><rect x="12" y="8" width="3" height="12" rx="0.8" fill="currentColor" stroke="none" /><rect x="17" y="4.5" width="3" height="15.5" rx="0.8" fill="currentColor" stroke="none" /></>,
   wifi: <><path d="M2.5 9a14 14 0 0 1 19 0M5.8 12.5a9.2 9.2 0 0 1 12.4 0M9.2 16a4.5 4.5 0 0 1 5.6 0" /><circle cx="12" cy="19" r="1.2" fill="currentColor" stroke="none" /></>,
   voltar: <path d="m14.5 5-7 7 7 7" />,
+  garrafa: <><path d="M9.5 2.5h5v3h-5z" /><path d="M9.5 5.5 8 8v12a1.5 1.5 0 0 0 1.5 1.5h5A1.5 1.5 0 0 0 16 20V8l-1.5-2.5" /><path d="M8 11.5h8M8 16h8" /></>,
+  capa: <><rect x="6" y="2.5" width="12" height="19" rx="3" /><rect x="8.5" y="5" width="4" height="5" rx="1.4" /><circle cx="10.5" cy="7.5" r="0.6" fill="currentColor" stroke="none" /></>,
+  som: <><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" /><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11" /></>,
+  mudo: <><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" /><path d="m16 9.5 5 5M21 9.5l-5 5" /></>,
   mais: <path d="M12 5v14M5 12h14" />,
   microfone: <><rect x="9" y="3" width="6" height="11" rx="3" /><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21" /></>,
 }
