@@ -200,11 +200,13 @@ h1, h2, h3, p { margin: 0; }
   transition: transform 0.8s var(--mola), opacity 0.6s var(--suave);
 }
 .flutuante-conversa.visivel { transform: none; opacity: 1; }
-.flutuante-conversa__icone { position: relative; width: 46px; height: 46px; border-radius: 12px; background: #fff; display: grid; place-items: center; }
-.flutuante-conversa__icone svg { width: 26px; height: 30px; }
-.flutuante-conversa__icone::after { content: ''; position: absolute; top: -3px; right: -3px; width: 12px; height: 12px; border-radius: 50%; background: #31ce01; border: 2px solid var(--marinho); animation: pulso 2.4s ease-in-out infinite; }
-.flutuante-conversa strong { display: block; font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
-.flutuante-conversa span { display: block; font-size: 12.5px; color: var(--azul-300); margin-top: 2px; }
+/* escudo sem fundo, ocupando a caixa inteira; a bolinha verde marca "online" */
+.flutuante-conversa__icone { position: relative; flex: none; width: 46px; height: 46px; display: grid; place-items: center; }
+.flutuante-conversa__icone svg { width: 100%; height: 100%; display: block; }
+.flutuante-conversa__icone::after { content: ''; position: absolute; top: -2px; right: -2px; width: 12px; height: 12px; border-radius: 50%; background: #31ce01; border: 2px solid var(--marinho); animation: pulso 2.4s ease-in-out infinite; }
+.flutuante-conversa__texto { display: block; }
+.flutuante-conversa__texto strong { display: block; font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: #fff; }
+.flutuante-conversa__texto small { display: block; font-size: 12.5px; color: var(--azul-300); margin-top: 2px; }
 .flutuante-conversa:hover { transform: translateY(-3px); }
 @keyframes pulso { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(0.82); opacity: 0.7; } }
 
@@ -226,9 +228,8 @@ body.pausado *, body.pausado *::before, body.pausado *::after { animation-play-s
   .topo__links { display: none; }
   .topo__barra { padding-left: 14px; gap: 12px; }
   .flutuante-conversa { right: 12px; bottom: 12px; gap: 10px; padding: 7px 14px 7px 7px; border-radius: 14px; }
-  .flutuante-conversa__icone { width: 36px; height: 36px; border-radius: 10px; }
-  .flutuante-conversa__icone svg { width: 20px; height: 24px; }
-  .flutuante-conversa span span { display: none; }
+  .flutuante-conversa__icone { width: 36px; height: 36px; }
+  .flutuante-conversa__texto small { display: none; }
 }
 
 /* Aviso de mensagem copiada (Direct do Instagram não aceita texto pronto) */

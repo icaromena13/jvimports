@@ -91,11 +91,11 @@ export function FlutuanteConversa() {
     return () => { clearTimeout(t); io.disconnect(); sair() }
   }, [])
   return (
-    <a className={`flutuante-conversa ${visivel ? 'visivel' : ''}`} href={linkConversa()} data-mensagem={MENSAGEM_PADRAO} target="_blank" rel="noopener" aria-label="Falar com a JV Imports">
+    <a className={`flutuante-conversa ${visivel ? 'visivel' : ''}`} href={linkConversa()} data-mensagem={MENSAGEM_PADRAO} target="_blank" rel="noopener" aria-label="Fale com o JV no WhatsApp">
       <span className="flutuante-conversa__icone"><Escudo cor="var(--laranja)" /></span>
-      <span>
-        <strong>Fale com a JV</strong>
-        <span>{canalConversa() === 'WhatsApp' ? 'Resposta rápida no WhatsApp' : 'Resposta rápida no Direct'}</span>
+      <span className="flutuante-conversa__texto">
+        <strong>Fale com o JV</strong>
+        <small>{canalConversa() === 'WhatsApp' ? 'Resposta rápida no WhatsApp' : 'Resposta rápida no Direct'}</small>
       </span>
     </a>
   )
