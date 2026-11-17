@@ -111,7 +111,7 @@ export const ENTREGA = {
     { de: 'cliente', texto: 'Amei! Dá para entregar hoje?', hora: '10:05' },
     { de: 'jv', texto: 'Dá sim! Qual o seu bairro?', hora: '10:05' },
     { de: 'cliente', texto: 'Ponta Verde', hora: '10:06' },
-    { de: 'jv', tipo: 'pedido', titulo: 'Pedido confirmado', linhas: ['iPhone 18 Pro Max · 256 GB', 'Lacrado, com nota fiscal', 'Entrega hoje · Ponta Verde'], hora: '10:08' },
+    { de: 'jv', tipo: 'pedido', titulo: 'Pedido confirmado', linhas: ['iPhone 18 Pro Max · 256 GB', 'Lacrado, na caixa original', 'Entrega hoje · Ponta Verde'], hora: '10:08' },
     { de: 'jv', tipo: 'local', texto: 'Saiu para entrega 🛵 Você acompanha por aqui', hora: '14:20' },
     { de: 'jv', texto: 'Chego em uns 15 minutos', hora: '14:21' },
     { de: 'cliente', texto: 'Perfeito, tô esperando!', hora: '14:22' },
@@ -170,8 +170,8 @@ export const SERVICOS = {
 
 export const SEGURANCA = {
   titulo: 'Compra segura',
-  texto: 'Procedência conferida, nota fiscal e garantia estendida. Você sabe exatamente o que está levando.',
-  itens: ['Procedência conferida', 'Nota fiscal', 'Garantia estendida'],
+  texto: 'Procedência conferida e garantia estendida. Você sabe exatamente o que está levando.',
+  itens: ['Procedência conferida', 'Garantia estendida'],
 }
 
 export const DONO = {
@@ -198,7 +198,6 @@ export const DUVIDAS = {
     { p: 'Quais são as formas de pagamento?', r: 'Pix, dinheiro e cartão de crédito ou débito. No cartão, você parcela em até 18x.' },
     { p: 'Vocês aceitam meu aparelho usado na troca?', r: 'Sim, e sem custo de frete. Mande o modelo e o estado do seu aparelho que a gente avalia e abate o valor do novo.' },
     { p: 'Como funciona a garantia?', r: 'Todo aparelho sai com garantia estendida. O prazo e as condições de cada modelo você consulta direto com a gente no WhatsApp.' },
-    { p: 'Os aparelhos têm nota fiscal?', r: 'Sim. Todos os aparelhos, lacrados e seminovos, saem com nota fiscal.' },
     { p: 'Os seminovos são confiáveis?', r: 'Cada seminovo é revisado antes da venda: bateria, câmeras e Face ID testados. Você recebe fotos e vídeos reais do aparelho antes de fechar.' },
     { p: 'Quanto custa e quanto tempo leva a entrega?', r: 'A entrega é grátis e acontece no mesmo dia marcado com você, em qualquer bairro de Maceió.' },
     { p: 'Qual o horário de atendimento?', r: 'Atendemos 24 horas, 7 dias por semana. Pode chamar a qualquer hora.' },

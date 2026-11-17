@@ -87,7 +87,8 @@
 .loja__cores { display: flex; justify-content: center; gap: 3cqw; }
 .loja__cores span { width: 7cqw; height: 7cqw; border-radius: 50%; background: var(--c); box-shadow: inset 0 0 0 0.4cqw rgba(0, 0, 0, 0.12); }
 .loja__cores span.ativa { box-shadow: 0 0 0 0.6cqw #f4f6fa, 0 0 0 1.2cqw var(--laranja); }
-.loja__linhas { display: grid; grid-template-columns: 1fr 1fr; gap: 3cqw; }
+.loja__linhas { display: grid; grid-template-columns: 1fr; gap: 3cqw; }
+.loja__linhas span { justify-content: center; }
 .loja__linhas span { display: flex; align-items: center; gap: 2cqw; padding: 3.4cqw; border-radius: 4cqw; background: #fff; font-size: 3.8cqw; font-weight: 500; }
 .loja__linhas svg { width: 5cqw; height: 5cqw; color: var(--laranja); }
 

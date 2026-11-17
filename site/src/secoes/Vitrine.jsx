@@ -23,8 +23,7 @@ function TelaLacrado() {
         {cores.map(([c, n], i) => <span key={n} className={i === 0 ? 'ativa' : ''} style={{ '--c': c }} title={n} />)}
       </div>
       <div className="loja__linhas">
-        <span><Icone nome="nota" />Nota fiscal</span>
-        <span><Icone nome="escudoCheck" />Garantia</span>
+        <span><Icone nome="escudoCheck" />Garantia estendida</span>
       </div>
     </div>
   )
