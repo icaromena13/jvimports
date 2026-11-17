@@ -181,16 +181,22 @@
 @media (max-width: 480px) and (max-height: 600px) { .hero__texto .texto { display: none; } }
 
 /* Etiqueta acima do título (Black Friday até 30/11, depois a apresentação da loja) */
-.hero__etiqueta { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 4px; padding: 6px 14px 6px 6px; border-radius: 99px; background: rgba(255, 255, 255, 0.78); box-shadow: inset 0 0 0 1px rgba(1, 40, 73, 0.1), 0 10px 30px -14px rgba(1, 40, 73, 0.45); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: var(--tinta); font-size: 15px; font-weight: 600; text-decoration: none; transition: transform 0.4s var(--mola); }
-a.hero__etiqueta:hover { transform: translateY(-2px); }
-.hero__etiqueta b { padding: 5px 11px; border-radius: 99px; background: var(--azul-900); color: #fff; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
-.hero__etiqueta svg { width: 16px; height: 16px; color: var(--laranja); }
+.hero__etiqueta { position: relative; overflow: hidden; display: inline-flex; align-items: center; gap: 10px; margin: 0 0 4px; padding: 5px 5px 5px 5px; border-radius: 99px; background: #fff; box-shadow: inset 0 0 0 1.5px rgba(252, 98, 54, 0.55), 0 10px 28px -12px rgba(252, 98, 54, 0.55); color: var(--tinta); font-size: 15px; font-weight: 600; text-decoration: none; transition: transform 0.4s var(--mola), box-shadow 0.3s; }
+a.hero__etiqueta:hover { transform: translateY(-2px); box-shadow: inset 0 0 0 1.5px var(--laranja), 0 14px 30px -12px rgba(252, 98, 54, 0.7); }
+.hero__etiqueta b { padding: 5px 11px; border-radius: 99px; background: var(--laranja); color: var(--azul-950); font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.hero__etiqueta > svg { width: 26px; height: 26px; padding: 6px; border-radius: 50%; background: var(--azul-900); color: #fff; box-sizing: border-box; transition: transform 0.4s var(--mola); }
+a.hero__etiqueta:hover > svg { transform: translateX(3px); }
+/* brilho que atravessa a etiqueta de tempos em tempos */
+a.hero__etiqueta::after { content: ''; position: absolute; top: 0; bottom: 0; left: -40%; width: 30%; background: linear-gradient(100deg, transparent, rgba(252, 98, 54, 0.22), transparent); transform: skewX(-20deg); animation: etiqueta-brilho 4.5s ease-in-out 2.4s infinite; pointer-events: none; }
+@keyframes etiqueta-brilho { 0% { left: -40%; } 35%, 100% { left: 120%; } }
+@media (prefers-reduced-motion: reduce) { a.hero__etiqueta::after { animation: none; display: none; } }
 .hero__etiqueta--fixa { padding: 8px 16px; }
 .hero__etiqueta--fixa i { width: 8px; height: 8px; border-radius: 50%; background: var(--laranja); }
 @media (max-width: 480px) {
   .hero__texto { gap: 14px; padding-top: 92px; }
   .hero__etiqueta { font-size: 13px; gap: 8px; white-space: nowrap; }
   .hero__etiqueta b { font-size: 10.5px; padding: 4px 9px; }
+  .hero__etiqueta > svg { width: 22px; height: 22px; padding: 5px; }
   .hero__etiqueta .longo { display: none; }
 }
 .hero__etiqueta .curto { display: none; }
