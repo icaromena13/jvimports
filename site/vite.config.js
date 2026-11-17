@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 // Endereço público do site. As prévias de link (WhatsApp, Instagram) exigem og:image e og:url
 // com endereço completo; troque aqui quando houver domínio próprio.
-const ENDERECO_PUBLICO = 'https://yan791.github.io/site_jvimports/'
+const ENDERECO_PUBLICO = 'https://icaromena13.github.io/jvimports/'
 
 const linksAbsolutos = {
   name: 'jv-links-absolutos',

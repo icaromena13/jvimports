@@ -1,5 +1,5 @@
 # Publica o site no GitHub Pages a cada envio para o main.
-# O site fica em https://yan791.github.io/site_jvimports/ (branch gh-pages).
+# O site fica em https://icaromena13.github.io/jvimports/ (branch gh-pages).
 name: Publicar no GitHub Pages
 
 on:
