@@ -42,7 +42,14 @@ function VideoPromo() {
   )
 }
 
+export const blackAtiva = () => Date.now() < new Date(BLACK.ate).getTime()
+
 export function BlackFriday() {
+  if (!blackAtiva()) return null
+  return <SecaoBlack />
+}
+
+function SecaoBlack() {
   const ref = useRevela()
   return (
     <section className="black container" id="black-friday" ref={ref} data-fundo-escuro aria-labelledby="black-titulo">

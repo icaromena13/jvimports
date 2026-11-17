@@ -53,6 +53,8 @@ export const BLACK = {
   ],
   cta: 'Quero meu brinde',
   mensagem: 'Olá! Vim do site de vocês e quero aproveitar a Black Friday com a garrafa de brinde.',
+  // a seção some sozinha a partir desta data (horário de Maceió, UTC-3)
+  ate: '2026-12-01T00:00:00-03:00',
   video: 'promo/garrafa.mp4',
   capa: 'promo/garrafa-capa.jpg',
 }
