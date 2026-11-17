@@ -169,7 +169,7 @@ export function Pedido() {
             {msg}
             <span className="pedido__hora">agora <Icone nome="check" /><Icone nome="check" /></span>
           </div>
-          <a className={`pilula pilula--grande pedido__enviar ${enviando ? 'enviando' : ''}`} href={linkConversa(msg)} target="_blank" rel="noopener" onClick={enviar}>
+          <a className={`pilula pilula--grande pedido__enviar ${enviando ? 'enviando' : ''}`} href={linkConversa(msg)} data-mensagem={msg} target="_blank" rel="noopener" onClick={enviar}>
             <Icone nome={canalConversa() === 'WhatsApp' ? 'whatsapp' : 'instagram'} />
             <span>{enviando ? 'Abrindo a conversa...' : `Enviar no ${canalConversa()}`}</span>
             <Icone nome="seta" className="pilula__seta" />

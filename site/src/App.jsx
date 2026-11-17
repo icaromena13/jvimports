@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Topo, FlutuanteConversa } from './componentes/Topo.jsx'
+import { Aviso } from './componentes/Aviso.jsx'
 import { ESCUDO_TODOS } from './componentes/Marca.jsx'
 import { FOTOS } from './componentes/Aparelhos.jsx'
 import { Hero } from './secoes/Hero.jsx'
@@ -57,6 +58,7 @@ export default function App() {
       </main>
       <Rodape />
       <FlutuanteConversa />
+      <Aviso />
     </>
   )
 }

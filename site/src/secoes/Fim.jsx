@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { SERVICOS, SEGURANCA, GALERIA, FINAL, RODAPE, CLIENTES, INSTAGRAM, linkConversa } from '../dados/conteudo.js'
+import { MENSAGEM_PADRAO, DONO, SERVICOS, SEGURANCA, GALERIA, FINAL, RODAPE, CLIENTES, INSTAGRAM, linkConversa } from '../dados/conteudo.js'
 import { Celular, Relogio, FotoCliente, ImagemOpcional, Costas, FOTOS } from '../componentes/Aparelhos.jsx'
 import { Icone } from '../componentes/Icone.jsx'
 import { Escudo, Marca } from '../componentes/Marca.jsx'
@@ -133,6 +133,10 @@ export function Galeria() {
         ))}
       </div>
       <div className="galeria__texto">
+        <figure className="galeria__dono" data-revela style={{ '--i': 0 }}>
+          <img src={DONO.foto} alt={DONO.alt} width="920" height="830" loading="lazy" decoding="async" />
+          <figcaption><strong>{DONO.nome}</strong><span>{DONO.legenda}</span></figcaption>
+        </figure>
         <h2 id="galeria-titulo" className="titulo titulo--display centro">
           {GALERIA.titulo.map((l, i) => <span className="linha-mascara" key={i}><span style={{ '--i': i }}>{l}</span></span>)}
         </h2>
@@ -190,7 +194,7 @@ export function Rodape() {
             {g.links.map(([t, h]) => {
               const href = h === 'conversa' ? linkConversa() : h
               const fora = !href.startsWith('#')
-              return <a key={t} href={href} onClick={(e) => ir(e, href)} {...(fora ? { target: '_blank', rel: 'noopener' } : {})}>{t}</a>
+              return <a key={t} href={href} onClick={(e) => ir(e, href)} {...(h === 'conversa' ? { 'data-mensagem': MENSAGEM_PADRAO } : {})} {...(fora ? { target: '_blank', rel: 'noopener' } : {})}>{t}</a>
             })}
           </div>
         ))}

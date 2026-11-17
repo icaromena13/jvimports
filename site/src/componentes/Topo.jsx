@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Marca, Escudo } from './Marca.jsx'
 import { Icone } from './Icone.jsx'
-import { NAV, linkConversa, canalConversa } from '../dados/conteudo.js'
+import { NavLiquida } from './NavLiquida.jsx'
+import { NAV, MENSAGEM_PADRAO, linkConversa, canalConversa } from '../dados/conteudo.js'
 import { irPara, aoRolar } from '../lib/rolagem.js'
 
 export function Topo() {
@@ -20,15 +21,41 @@ export function Topo() {
     return () => { clearTimeout(t); io.disconnect() }
   }, [])
   const clicar = (e, alvo) => { e.preventDefault(); irPara(alvo) }
+
+  // item ativo do menu = seção que ocupa a faixa do meio da tela; depois de um clique, a gota
+  // fica parada no item escolhido até a rolagem terminar (senão ela passaria por todos os outros)
+  const [ativo, setAtivo] = useState(0)
+  const travaAte = useRef(0)
+  useEffect(() => {
+    const io = new IntersectionObserver((entradas) => {
+      if (performance.now() < travaAte.current) return
+      for (const e of entradas) {
+        if (!e.isIntersecting) continue
+        const i = NAV.findIndex((n) => n.alvo === `#${e.target.id}`)
+        if (i >= 0) setAtivo(i)
+      }
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 })
+    const alvos = () => NAV.forEach((n) => { const s = document.querySelector(n.alvo); if (s) io.observe(s) })
+    alvos()
+    const t = setTimeout(alvos, 1500)
+    return () => { clearTimeout(t); io.disconnect() }
+  }, [])
+  const escolher = (e, item) => { travaAte.current = performance.now() + 1700; clicar(e, item.href) }
   return (
     <header className={`topo ${escuro ? 'topo--escuro' : ''}`}>
-      <nav className="topo__barra" aria-label="Principal">
+      <div className="topo__barra">
         <a href="#inicio" onClick={(e) => clicar(e, '#inicio')} aria-label="JV Imports, início"><Marca compacta /></a>
         <div className="topo__links">
-          {NAV.map((n) => <a key={n.alvo} className="topo__link" href={n.alvo} onClick={(e) => clicar(e, n.alvo)}>{n.rotulo}</a>)}
+          <NavLiquida
+            items={NAV.map((n) => ({ label: n.rotulo, href: n.alvo }))}
+            active={ativo}
+            onChange={setAtivo}
+            onNavigate={escolher}
+            tone={escuro ? 'dark' : 'light'}
+          />
         </div>
         <BotaoConversa compacto />
-      </nav>
+      </div>
     </header>
   )
 }
@@ -42,7 +69,7 @@ export function BotaoConversa({ texto, mensagem, grande = false, clara = false, 
   const canal = canalConversa()
   return (
     // compacto (topo) é ação de apoio: azul. Grande (hero, final) é a ação principal: laranja.
-    <a className={`pilula ${grande ? 'pilula--grande' : ''} ${clara ? 'pilula--clara' : ''} ${compacto ? 'pilula--azul' : ''}`} href={linkConversa(mensagem)} target="_blank" rel="noopener" onPointerMove={mover}>
+    <a className={`pilula ${grande ? 'pilula--grande' : ''} ${clara ? 'pilula--clara' : ''} ${compacto ? 'pilula--azul' : ''}`} href={linkConversa(mensagem)} data-mensagem={mensagem || MENSAGEM_PADRAO} target="_blank" rel="noopener" onPointerMove={mover}>
       <Icone nome={canal === 'WhatsApp' ? 'whatsapp' : 'instagram'} />
       <span>{texto || (compacto ? 'Falar com a JV' : `Chamar no ${canal}`)}</span>
       {!compacto && <Icone nome="seta" className="pilula__seta" />}
@@ -64,7 +91,7 @@ export function FlutuanteConversa() {
     return () => { clearTimeout(t); io.disconnect(); sair() }
   }, [])
   return (
-    <a className={`flutuante-conversa ${visivel ? 'visivel' : ''}`} href={linkConversa()} target="_blank" rel="noopener" aria-label="Falar com a JV Imports">
+    <a className={`flutuante-conversa ${visivel ? 'visivel' : ''}`} href={linkConversa()} data-mensagem={MENSAGEM_PADRAO} target="_blank" rel="noopener" aria-label="Falar com a JV Imports">
       <span className="flutuante-conversa__icone"><Escudo cor="var(--laranja)" /></span>
       <span>
         <strong>Fale com a JV</strong>
