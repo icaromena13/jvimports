@@ -5,7 +5,8 @@ import { Celular, Relogio, ImagemOpcional, FOTOS } from '../componentes/Aparelho
 import { Icone } from '../componentes/Icone.jsx'
 import { Escudo } from '../componentes/Marca.jsx'
 import { BotaoConversa } from '../componentes/Topo.jsx'
-import { gsap, ScrollTrigger } from '../lib/rolagem.js'
+import { blackAtiva } from './BlackFriday.jsx'
+import { gsap, ScrollTrigger, irPara } from '../lib/rolagem.js'
 
 const hoje = () => {
   const d = new Intl.DateTimeFormat('pt-BR', { weekday: 'long', day: 'numeric', month: 'long' }).format(new Date())
@@ -96,6 +97,13 @@ export function Hero() {
       <div className="hero__campo">
         <Tunel className="hero__tunel" progresso={progresso} />
         <div className="hero__texto">
+          {blackAtiva() ? (
+            <a className="hero__etiqueta" href="#black-friday" onClick={(e) => { e.preventDefault(); irPara('#black-friday') }} data-revela style={{ '--i': 1 }}>
+              <b>Black Friday</b><span className="longo">Ganhe uma garrafa personalizada</span><span className="curto">Ganhe uma garrafa de brinde</span><Icone nome="seta" />
+            </a>
+          ) : (
+            <p className="hero__etiqueta hero__etiqueta--fixa" data-revela style={{ '--i': 1 }}><i /><span>Loja de iPhones em Maceió · desde 2020</span></p>
+          )}
           <h1 className="titulo titulo--hero">
             {HERO.titulo.map((l, i) => <span className="linha-mascara" key={i}><span style={{ '--i': i + 2 }}>{grifar(l, 'Maceió')}</span></span>)}
           </h1>
