@@ -203,7 +203,7 @@ export function Final() {
         {FINAL.titulo.map((l, i) => <span className="linha-mascara" key={i}><span style={{ '--i': i }}>{l}</span></span>)}
       </h2>
       <p className="texto centro" data-revela style={{ '--i': 2 }}>{FINAL.texto}</p>
-      <div data-revela style={{ '--i': 3 }}><BotaoConversa grande mensagem="Oi, JV! Vim pelo site e quero comprar um aparelho." /></div>
+      <div data-revela style={{ '--i': 3 }}><BotaoConversa grande /></div>
       <div className={`final__mesa ${foto ? 'final__mesa--foto' : ''}`} aria-hidden="true">
         {/* mesa de produtos (foto do ChatGPT); sem ela, entra a composição em CSS */}
         <ImagemOpcional src={FOTOS.mesa} className="final__foto" onStatus={setFoto} />

@@ -101,7 +101,7 @@ export function Hero() {
           </h1>
           <p className="texto centro" data-revela style={{ '--i': 5 }}>{HERO.texto}</p>
           <div className="hero__acoes" data-revela style={{ '--i': 6 }}>
-            <BotaoConversa grande mensagem="Oi, JV! Vim pelo site e quero ver os iPhones disponíveis." />
+            <BotaoConversa grande />
           </div>
           <p className="hero__selo" data-revela style={{ '--i': 7 }}>
             <Escudo cor="var(--laranja)" className="hero__selo-escudo" />

@@ -167,3 +167,6 @@
   .hero__palco--com-costas .hero__celular { transform: translateX(13%); }
   .hero__relogio { --w: min(28vw, 120px); right: calc(var(--w) * -0.5); }
 }
+.hero__selo span { white-space: nowrap; }
+/* no celular o selo fica só com os clientes; "Lacrados e seminovos" já aparece nos chips */
+@media (max-width: 480px) { .hero__selo i, .hero__selo span:last-child { display: none; } }

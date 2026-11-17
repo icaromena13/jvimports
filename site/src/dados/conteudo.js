@@ -1,12 +1,11 @@
 // Todo o texto do site num lugar só. Itens marcados com PENDENTE estão em ../PENDENCIAS.md.
 
-// PENDENTE: número do WhatsApp da loja (só dígitos, com DDD). Enquanto estiver vazio,
-// os botões abrem a conversa no Direct do Instagram.
-export const WHATSAPP = ''
+// Número do WhatsApp da loja (só dígitos, com DDD). Vazio = os botões voltam a abrir o Direct do Instagram.
+export const WHATSAPP = '8281664576'
 export const INSTAGRAM = 'https://www.instagram.com/jvimportsmcz/'
 const DIRECT = 'https://ig.me/m/jvimportsmcz'
 
-export const MENSAGEM_PADRAO = 'Oi, JV! Vim pelo site e quero saber mais.'
+export const MENSAGEM_PADRAO = 'Olá! Vim do site de vocês, gostaria de saber mais.'
 
 // O Direct do Instagram não aceita texto pré-preenchido no link (nem ig.me nem instagram.com/direct).
 // Por isso, no Direct, o clique copia a mensagem (ver Aviso.jsx) e o visitante só precisa colar.
@@ -193,7 +192,7 @@ export const GALERIA = {
 export const DUVIDAS = {
   rotulo: 'Perguntas frequentes',
   titulo: ['Ficou alguma', 'dúvida?'],
-  texto: 'As perguntas que mais chegam no nosso Direct, respondidas aqui.',
+  texto: 'As perguntas que mais chegam pra gente, respondidas aqui.',
   cta: 'Perguntar para a JV',
   itens: [
     { p: 'Quais são as formas de pagamento?', r: 'Pix, dinheiro e cartão de crédito ou débito. No cartão, você parcela em até 18x.' },
