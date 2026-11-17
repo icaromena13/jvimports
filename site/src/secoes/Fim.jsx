@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { MENSAGEM_PADRAO, DONO, SERVICOS, SEGURANCA, GALERIA, FINAL, RODAPE, CLIENTES, INSTAGRAM, linkConversa } from '../dados/conteudo.js'
+import { MENSAGEM_PADRAO, DONO, SERVICOS, SEGURANCA, GALERIA, DUVIDAS, FINAL, RODAPE, CLIENTES, INSTAGRAM, linkConversa } from '../dados/conteudo.js'
 import { Celular, Relogio, FotoCliente, ImagemOpcional, Costas, FOTOS } from '../componentes/Aparelhos.jsx'
 import { Icone } from '../componentes/Icone.jsx'
 import { Escudo, Marca } from '../componentes/Marca.jsx'
@@ -158,6 +158,42 @@ export function Galeria() {
 }
 
 /* ---------- Final + rodapé ---------- */
+/* ---------- Dúvidas: título à esquerda, perguntas abrindo à direita ---------- */
+export function Duvidas() {
+  const ref = useRevela()
+  const [aberta, setAberta] = useState(0)
+  return (
+    <section className="duvidas container" id="duvidas" ref={ref} aria-labelledby="duvidas-titulo">
+      <div className="duvidas__lado">
+        <p className="duvidas__rotulo" data-revela>{DUVIDAS.rotulo}</p>
+        <h2 id="duvidas-titulo" className="titulo titulo--display">
+          {DUVIDAS.titulo.map((l, i) => <span className="linha-mascara" key={i}><span style={{ '--i': i }}>{l}</span></span>)}
+        </h2>
+        <p className="texto" data-revela style={{ '--i': 2 }}>{DUVIDAS.texto}</p>
+        <div data-revela style={{ '--i': 3 }}><BotaoConversa texto={DUVIDAS.cta} mensagem="Oi, JV! Vim pelo site e fiquei com uma dúvida." /></div>
+      </div>
+      <ul className="duvidas__lista">
+        {DUVIDAS.itens.map((d, i) => {
+          const on = i === aberta
+          return (
+            <li key={d.p} data-revela style={{ '--i': i + 1 }}>
+              <div className={`duvida ${on ? 'aberta' : ''}`}>
+                <button className="duvida__pergunta" onClick={() => setAberta(on ? -1 : i)} aria-expanded={on} aria-controls={`duvida-${i}`}>
+                  <span>{d.p}</span>
+                  <span className="duvida__sinal" aria-hidden="true"><Icone nome="mais" /></span>
+                </button>
+                <div className="duvida__corpo" id={`duvida-${i}`} role="region" aria-hidden={!on}>
+                  <div><p>{d.r}</p></div>
+                </div>
+              </div>
+            </li>
+          )
+        })}
+      </ul>
+    </section>
+  )
+}
+
 export function Final() {
   const ref = useRevela()
   const [foto, setFoto] = useState(null)

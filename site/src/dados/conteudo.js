@@ -29,11 +29,11 @@ export const HERO = {
   titulo: ['iPhones e assistência', 'em toda Maceió'],
   texto: 'Lacrados e seminovos revisados, iPad, MacBook, Apple Watch e AirPods. Você escolhe pelo WhatsApp e recebe em casa.',
   cta: 'Chamar no WhatsApp',
-  selo: 'Desde 2020 em Maceió',
+  selo: '+5.000 clientes desde 2020',
   chips: [
     { id: 'lacrado', icone: 'caixa', titulo: 'Lacrado', texto: 'na caixa original' },
     { id: 'bateria', icone: 'bateria', titulo: 'Bateria', texto: 'conferida no seminovo' },
-    { id: 'entrega', icone: 'moto', titulo: 'Entrega', texto: 'em toda Maceió' },
+    { id: 'entrega', icone: 'moto', titulo: 'Entrega grátis', texto: 'em toda Maceió' },
   ],
   notificacoes: [
     { app: 'WhatsApp', quem: 'JV Imports', texto: 'Seu iPhone saiu para entrega 🛵', quando: 'agora' },
@@ -49,6 +49,7 @@ export const LINHA = {
 const QUANTAS_FOTOS = 10
 export const CLIENTES = {
   selos: [
+    { linha1: 'Mais de', linha2: '5.000 clientes' },
     { linha1: 'Desde', linha2: '2020' },
     { linha1: 'Toda', linha2: 'Maceió' },
   ],
@@ -89,7 +90,7 @@ export const PEDIDO = {
   texto: 'Escolha o aparelho e o estado. A mensagem chega pronta no WhatsApp da JV.',
   aparelhos: ['iPhone', 'iPad', 'MacBook', 'Apple Watch', 'AirPods'],
   estados: ['Lacrado', 'Seminovo', 'Tanto faz'],
-  extras: ['Quero entrega hoje', 'Quero dar meu usado na troca', 'Pagamento no cartão'],
+  extras: ['Quero entrega hoje', 'Quero dar meu usado na troca', 'Parcelar em até 18x'],
 }
 
 export const ECOSSISTEMA = {
@@ -170,9 +171,8 @@ export const SERVICOS = {
 
 export const SEGURANCA = {
   titulo: 'Compra segura',
-  // PENDENTE: confirmar nota fiscal e prazos de garantia (lacrado e seminovo)
-  texto: 'Procedência conferida, nota fiscal e garantia. Você sabe exatamente o que está levando.',
-  itens: ['Procedência conferida', 'Nota fiscal', 'Garantia'],
+  texto: 'Procedência conferida, nota fiscal e garantia estendida. Você sabe exatamente o que está levando.',
+  itens: ['Procedência conferida', 'Nota fiscal', 'Garantia estendida'],
 }
 
 export const DONO = {
@@ -185,8 +185,26 @@ export const DONO = {
 
 export const GALERIA = {
   titulo: ['Feito com atenção,', 'de Maceió para Maceió'],
-  texto: 'Desde 2020, João Vitor e a equipe atendem cada cliente de perto, do primeiro contato ao pós-venda.',
+  texto: 'Desde 2020, João Vitor e a equipe já atenderam mais de 5.000 clientes, de perto, do primeiro contato ao pós-venda.',
   cta: 'Ver mais no Instagram',
+}
+
+// Perguntas frequentes (respostas confirmadas com o cliente).
+export const DUVIDAS = {
+  rotulo: 'Perguntas frequentes',
+  titulo: ['Ficou alguma', 'dúvida?'],
+  texto: 'As perguntas que mais chegam no nosso Direct, respondidas aqui.',
+  cta: 'Perguntar para a JV',
+  itens: [
+    { p: 'Quais são as formas de pagamento?', r: 'Pix, dinheiro e cartão de crédito ou débito. No cartão, você parcela em até 18x.' },
+    { p: 'Vocês aceitam meu aparelho usado na troca?', r: 'Sim, e sem custo de frete. Mande o modelo e o estado do seu aparelho que a gente avalia e abate o valor do novo.' },
+    { p: 'Como funciona a garantia?', r: 'Todo aparelho sai com garantia estendida. O prazo e as condições de cada modelo você consulta direto com a gente no WhatsApp.' },
+    { p: 'Os aparelhos têm nota fiscal?', r: 'Sim. Todos os aparelhos, lacrados e seminovos, saem com nota fiscal.' },
+    { p: 'Os seminovos são confiáveis?', r: 'Cada seminovo é revisado antes da venda: bateria, câmeras e Face ID testados. Você recebe fotos e vídeos reais do aparelho antes de fechar.' },
+    { p: 'Quanto custa e quanto tempo leva a entrega?', r: 'A entrega é grátis e acontece no mesmo dia marcado com você, em qualquer bairro de Maceió.' },
+    { p: 'Qual o horário de atendimento?', r: 'Atendemos 24 horas, 7 dias por semana. Pode chamar a qualquer hora.' },
+    { p: 'Como peço orçamento de conserto?', r: 'Mande o modelo do aparelho e o que aconteceu. A gente responde com o valor e o prazo do reparo.' },
+  ],
 }
 
 export const FINAL = {
@@ -198,7 +216,7 @@ export const FINAL = {
 export const RODAPE = {
   grupos: [
     { titulo: 'Aparelhos', links: [['iPhone lacrado', '#aparelhos'], ['iPhone seminovo', '#aparelhos'], ['iPad e MacBook', '#ecossistema'], ['Apple Watch e AirPods', '#ecossistema']] },
-    { titulo: 'Atendimento', links: [['Como funciona a entrega', '#entrega'], ['Assistência técnica', '#assistencia'], ['Monte seu pedido', '#pedido']] },
+    { titulo: 'Atendimento', links: [['Como funciona a entrega', '#entrega'], ['Assistência técnica', '#assistencia'], ['Monte seu pedido', '#pedido'], ['Perguntas frequentes', '#duvidas']] },
     { titulo: 'Redes', links: [['Instagram', INSTAGRAM], ['Fale com a JV', 'conversa']] },
   ],
   local: 'Maceió, Alagoas',

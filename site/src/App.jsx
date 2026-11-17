@@ -7,7 +7,7 @@ import { Hero } from './secoes/Hero.jsx'
 import { Linha, Clientes } from './secoes/Prova.jsx'
 import { Aparelhos, Pedido, Ecossistema } from './secoes/Vitrine.jsx'
 import { Entrega } from './secoes/Entrega.jsx'
-import { Servicos, Seguranca, Galeria, Final, Rodape } from './secoes/Fim.jsx'
+import { Servicos, Seguranca, Galeria, Duvidas, Final, Rodape } from './secoes/Fim.jsx'
 import { iniciarRolagem, ScrollTrigger } from './lib/rolagem.js'
 
 function Carregando() {
@@ -54,6 +54,7 @@ export default function App() {
         <Servicos />
         <Seguranca />
         <Galeria />
+        <Duvidas />
         <Final />
       </main>
       <Rodape />

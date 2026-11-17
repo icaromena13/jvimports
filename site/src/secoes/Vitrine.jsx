@@ -116,7 +116,7 @@ export function Pedido() {
   const [enviando, setEnviando] = useState(false)
   const alternar = (x) => setExtras((l) => (l.includes(x) ? l.filter((y) => y !== x) : [...l, x]))
   const estadoTxt = estado === 'Tanto faz' ? 'lacrado ou seminovo' : estado.toLowerCase()
-  const frases = { 'Quero entrega hoje': 'quero receber hoje', 'Quero dar meu usado na troca': 'quero dar meu usado na troca', 'Pagamento no cartão': 'prefiro pagar no cartão' }
+  const frases = { 'Quero entrega hoje': 'quero receber hoje', 'Quero dar meu usado na troca': 'quero dar meu usado na troca', 'Parcelar em até 18x': 'quero parcelar no cartão' }
   const partes = PEDIDO.extras.filter((x) => extras.includes(x)).map((x) => frases[x])
   const juntas = partes.length > 1 ? `${partes.slice(0, -1).join(', ')} e ${partes.at(-1)}` : partes[0] || ''
   const extrasTxt = juntas ? ` ${juntas.charAt(0).toUpperCase()}${juntas.slice(1)}.` : ''
