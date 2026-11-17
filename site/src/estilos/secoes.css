@@ -475,3 +475,5 @@
 /* barra de progresso estilo VSL, colada na base da tela do celular */
 .black__progresso { position: absolute; left: 9cqw; right: 9cqw; bottom: 4.2cqw; z-index: 3; height: 1.8cqw; border-radius: 99px; overflow: hidden; background: rgba(255, 255, 255, 0.25); box-shadow: 0 0 0 0.5cqw rgba(1, 26, 49, 0.25); }
 .black__progresso i { display: block; height: 100%; background: linear-gradient(90deg, #ff8a5c, var(--laranja)); border-radius: 99px; box-shadow: 0 0 3cqw rgba(252, 98, 54, 0.9); transform: scaleX(0); transform-origin: left; }
+/* botão Quero meu brinde: texto e ícone do WhatsApp em branco sobre o laranja */
+.black__oferta .pilula { color: #fff; font-weight: 700; text-shadow: 0 1px 2px rgba(1, 26, 49, 0.25); }
