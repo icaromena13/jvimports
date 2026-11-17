@@ -432,7 +432,10 @@
 @keyframes black-pulso { to { box-shadow: 0 0 0 10px rgba(252, 98, 54, 0); } }
 .black__palco { grid-area: palco; display: grid; place-items: center; }
 .black__oferta { grid-area: oferta; display: flex; flex-direction: column; gap: 22px; margin-top: 28px; }
-.black__brindes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.black__brindes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+/* capinha, película e carregador lado a lado, em coluna: ícone em cima, texto embaixo */
+.black__brindes li:not(.destaque) { flex-direction: column; justify-content: center; gap: 10px; padding: 18px 10px; text-align: center; }
+.black__oferta > div:last-child { display: flex; justify-content: center; }
 .black__brindes li { position: relative; display: flex; align-items: center; gap: 12px; padding: 14px; border-radius: 16px; background: rgba(255, 255, 255, 0.06); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1); }
 .black__brindes li.destaque { grid-column: 1 / -1; padding: 18px; background: linear-gradient(120deg, rgba(252, 98, 54, 0.22), rgba(252, 98, 54, 0.06)); box-shadow: inset 0 0 0 1px rgba(252, 98, 54, 0.55); }
 .black__brindes b { display: block; font-size: 15.5px; font-weight: 600; letter-spacing: -0.01em; }
@@ -462,8 +465,8 @@
   .black__fita { right: -8%; font-size: 12px; padding: 7px 13px; }
 }
 @media (max-width: 480px) {
-  .black__brindes { grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .black__brindes li:not(.destaque) { flex-direction: column; gap: 8px; padding: 14px 6px; text-align: center; }
+  .black__brindes { gap: 8px; }
+  .black__brindes li:not(.destaque) { gap: 8px; padding: 14px 6px; }
   .black__brindes li:not(.destaque) small { display: none; }
   .black__brindes li:not(.destaque) b { font-size: 14px; }
   .black__oferta .pilula { width: 100%; justify-content: center; }
