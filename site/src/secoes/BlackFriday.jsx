@@ -11,6 +11,23 @@ function VideoPromo() {
   const video = useRef(null)
   const [mudo, setMudo] = useState(true)
   const [tocando, setTocando] = useState(false)
+  const barra = useRef(null)
+  // Barra laranja estilo VSL: anda rápido no começo e desacelera perto do fim,
+  // dando a sensação de que o vídeo é curto e já está acabando.
+  useEffect(() => {
+    let quadro
+    const desenhar = () => {
+      const v = video.current
+      if (v && barra.current && v.duration) {
+        const x = Math.min(v.currentTime / v.duration, 1)
+        const p = 1 - Math.pow(1 - x, 2.2)
+        barra.current.style.transform = `scaleX(${p})`
+      }
+      quadro = requestAnimationFrame(desenhar)
+    }
+    if (tocando) quadro = requestAnimationFrame(desenhar)
+    return () => cancelAnimationFrame(quadro)
+  }, [tocando])
   useEffect(() => {
     const v = video.current
     const calmo = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -36,6 +53,7 @@ function VideoPromo() {
           <span>{mudo ? 'Toque para ouvir' : 'Som ligado'}</span>
         </button>
         {!tocando && mudo && <span className="black__play" aria-hidden="true"><Icone nome="play" /></span>}
+        <span className="black__progresso" aria-hidden="true"><i ref={barra} /></span>
       </Celular>
       <span className="black__fita" aria-hidden="true">BLACK FRIDAY</span>
     </div>

@@ -446,7 +446,7 @@
 .black__video { position: relative; }
 .black__celular { --w: clamp(250px, 22vw, 310px); }
 .black__tela { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #0b1b2e; }
-.black__som { position: absolute; left: 50%; bottom: 7cqw; z-index: 3; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 2.6cqw; padding: 2.8cqw 4.6cqw; border-radius: 99px; background: rgba(1, 26, 49, 0.62); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #fff; font-size: 4.4cqw; font-weight: 600; white-space: nowrap; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18); transition: background 0.3s; }
+.black__som { position: absolute; left: 50%; bottom: 9.5cqw; z-index: 3; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 2.6cqw; padding: 2.8cqw 4.6cqw; border-radius: 99px; background: rgba(1, 26, 49, 0.62); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #fff; font-size: 4.4cqw; font-weight: 600; white-space: nowrap; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18); transition: background 0.3s; }
 .black__som svg { width: 5.6cqw; height: 5.6cqw; }
 .black__som:not(.ligado) { animation: black-chama 2.4s ease-in-out infinite; }
 .black__som.ligado { background: rgba(1, 26, 49, 0.4); }
@@ -469,3 +469,6 @@
   .black__oferta .pilula { width: 100%; justify-content: center; }
 }
 @media (prefers-reduced-motion: reduce) { .black__rotulo i, .black__som { animation: none; } }
+/* barra de progresso estilo VSL, colada na base da tela do celular */
+.black__progresso { position: absolute; left: 9cqw; right: 9cqw; bottom: 4.2cqw; z-index: 3; height: 1.8cqw; border-radius: 99px; overflow: hidden; background: rgba(255, 255, 255, 0.25); box-shadow: 0 0 0 0.5cqw rgba(1, 26, 49, 0.25); }
+.black__progresso i { display: block; height: 100%; background: linear-gradient(90deg, #ff8a5c, var(--laranja)); border-radius: 99px; box-shadow: 0 0 3cqw rgba(252, 98, 54, 0.9); transform: scaleX(0); transform-origin: left; }
