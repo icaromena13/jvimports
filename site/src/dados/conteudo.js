@@ -31,7 +31,7 @@ export const HERO = {
   selo: '+5.000 clientes desde 2020',
   chips: [
     { id: 'lacrado', icone: 'caixa', titulo: 'Lacrado', texto: 'na caixa original' },
-    { id: 'bateria', icone: 'bateria', titulo: 'Bateria', texto: 'conferida no seminovo' },
+    { id: 'bateria', icone: 'bateria', titulo: 'Bateria +90%', texto: 'em todo seminovo' },
     { id: 'entrega', icone: 'moto', titulo: 'Entrega grátis', texto: 'em toda Maceió' },
   ],
   notificacoes: [
@@ -91,7 +91,7 @@ export const APARELHOS = {
     {
       id: 'seminovos',
       titulo: 'Seminovos',
-      texto: 'Aparelhos revisados, com bateria, câmeras e Face ID testados antes da entrega.',
+      texto: 'Revisados, com bateria acima de 90% de saúde, câmeras e Face ID testados antes da entrega.',
       tom: 'azul',
     },
     {
@@ -217,7 +217,7 @@ export const DUVIDAS = {
     { p: 'Quais são as formas de pagamento?', r: 'Pix, dinheiro e cartão de crédito ou débito. No cartão, você parcela em até 18x.' },
     { p: 'Vocês aceitam meu aparelho usado na troca?', r: 'Sim, e sem custo de frete. Mande o modelo e o estado do seu aparelho que a gente avalia e abate o valor do novo.' },
     { p: 'Como funciona a garantia?', r: 'Todo aparelho sai com garantia estendida. O prazo e as condições de cada modelo você consulta direto com a gente no WhatsApp.' },
-    { p: 'Os seminovos são confiáveis?', r: 'Cada seminovo é revisado antes da venda: bateria, câmeras e Face ID testados. Você recebe fotos e vídeos reais do aparelho antes de fechar.' },
+    { p: 'Os seminovos são confiáveis?', r: 'Cada seminovo é revisado antes da venda, com bateria acima de 90% de saúde e câmeras e Face ID testados. Você recebe fotos e vídeos reais do aparelho antes de fechar.' },
     { p: 'Quanto custa e quanto tempo leva a entrega?', r: 'A entrega é grátis e acontece no mesmo dia marcado com você, em qualquer bairro de Maceió.' },
     { p: 'Qual o horário de atendimento?', r: 'Atendemos 24 horas, 7 dias por semana. Pode chamar a qualquer hora.' },
     { p: 'Como peço orçamento de conserto?', r: 'Mande o modelo do aparelho e o que aconteceu. A gente responde com o valor e o prazo do reparo.' },
@@ -232,7 +232,7 @@ export const FINAL = {
 
 export const RODAPE = {
   grupos: [
-    { titulo: 'Aparelhos', links: [['iPhone lacrado', '#aparelhos'], ['iPhone seminovo', '#aparelhos'], ['iPad e MacBook', '#ecossistema'], ['Apple Watch e AirPods', '#ecossistema']] },
+    { titulo: 'Aparelhos', links: [['iPhone lacrado', '#aparelhos'], ['iPhone seminovo', '#aparelhos'], ['iPad e MacBook', '#aparelhos'], ['Apple Watch e AirPods', '#ecossistema']] },
     { titulo: 'Atendimento', links: [['Como funciona a entrega', '#entrega'], ['Assistência técnica', '#assistencia'], ['Monte seu pedido', '#pedido'], ['Perguntas frequentes', '#duvidas']] },
     { titulo: 'Redes', links: [['Instagram', INSTAGRAM], ['Fale com o JV', 'conversa']] },
   ],

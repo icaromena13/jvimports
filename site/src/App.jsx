@@ -6,7 +6,7 @@ import { FOTOS } from './componentes/Aparelhos.jsx'
 import { Hero } from './secoes/Hero.jsx'
 import { BlackFriday } from './secoes/BlackFriday.jsx'
 import { Linha, Clientes } from './secoes/Prova.jsx'
-import { Aparelhos, Pedido, Ecossistema } from './secoes/Vitrine.jsx'
+import { Aparelhos, Pedido } from './secoes/Vitrine.jsx'
 import { Entrega } from './secoes/Entrega.jsx'
 import { Servicos, Seguranca, Galeria, Duvidas, Final, Rodape } from './secoes/Fim.jsx'
 import { iniciarRolagem, ScrollTrigger } from './lib/rolagem.js'
@@ -50,7 +50,6 @@ export default function App() {
         <Aparelhos />
         <section className="largos container" aria-label="Pedido e aparelhos">
           <Pedido />
-          <Ecossistema />
         </section>
         <Entrega />
         <Servicos />

@@ -70,7 +70,7 @@ function TelaAssistencia() {
 const TELAS = { lacrados: TelaLacrado, seminovos: TelaSeminovo, assistencia: TelaAssistencia }
 const CHIPS = {
   lacrados: { titulo: 'Na caixa', texto: 'lacre original', icone: 'caixa' },
-  seminovos: { titulo: 'Bateria', texto: 'conferida', icone: 'bateria' },
+  seminovos: { titulo: 'Bateria +90%', texto: 'em todo seminovo', icone: 'bateria' },
   assistencia: { titulo: 'Peça de qualidade', texto: 'com garantia', icone: 'escudoCheck' },
 }
 

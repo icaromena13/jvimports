@@ -254,3 +254,5 @@ body.pausado *, body.pausado *::before, body.pausado *::after { animation-play-s
 .topo .nimbus-item { height: 36px; padding: 0 14px; font-size: var(--text-nav); font-weight: 600; letter-spacing: 0; }
 .topo .nimbus-item:focus-visible { outline-color: var(--laranja-500); }
 .topo__links { margin: 0 6px 0 14px; }
+/* todos os botões laranja com texto e ícone em branco */
+.pilula:not(.pilula--azul):not(.pilula--clara) { color: #fff; font-weight: 700; text-shadow: 0 1px 2px rgba(1, 26, 49, 0.25); }
