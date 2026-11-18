@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { MENSAGEM_PADRAO, DONO, SERVICOS, SEGURANCA, GALERIA, DUVIDAS, FINAL, RODAPE, CLIENTES, INSTAGRAM, linkConversa } from '../dados/conteudo.js'
+import { MENSAGEM_PADRAO, MENSAGENS, DONO, SERVICOS, SEGURANCA, GALERIA, DUVIDAS, FINAL, RODAPE, CLIENTES, INSTAGRAM, linkConversa } from '../dados/conteudo.js'
 import { Celular, Relogio, FotoCliente, ImagemOpcional, Costas, FOTOS } from '../componentes/Aparelhos.jsx'
 import { Icone } from '../componentes/Icone.jsx'
 import { Escudo, Marca } from '../componentes/Marca.jsx'
@@ -174,7 +174,7 @@ export function Duvidas() {
           {DUVIDAS.titulo.map((l, i) => <span className="linha-mascara" key={i}><span style={{ '--i': i }}>{l}</span></span>)}
         </h2>
         <p className="texto" data-revela style={{ '--i': 2 }}>{DUVIDAS.texto}</p>
-        <div data-revela style={{ '--i': 3 }}><BotaoConversa texto={DUVIDAS.cta} mensagem="Oi, JV! Vim pelo site e fiquei com uma dúvida." /></div>
+        <div data-revela style={{ '--i': 3 }}><BotaoConversa texto={DUVIDAS.cta} mensagem={MENSAGENS.duvida} /></div>
       </div>
       <ul className="duvidas__lista">
         {DUVIDAS.itens.map((d, i) => {
@@ -207,7 +207,7 @@ export function Final() {
         {FINAL.titulo.map((l, i) => <span className="linha-mascara" key={i}><span style={{ '--i': i }}>{l}</span></span>)}
       </h2>
       <p className="texto centro" data-revela style={{ '--i': 2 }}>{FINAL.texto}</p>
-      <div data-revela style={{ '--i': 3 }}><BotaoConversa grande /></div>
+      <div data-revela style={{ '--i': 3 }}><BotaoConversa grande mensagem={MENSAGENS.final} /></div>
       <div className={`final__mesa ${foto ? 'final__mesa--foto' : ''}`} aria-hidden="true">
         {/* mesa de produtos (foto do ChatGPT); sem ela, entra a composição em CSS */}
         <ImagemOpcional src={FOTOS.mesa} className="final__foto" onStatus={setFoto} />

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { HERO } from '../dados/conteudo.js'
+import { HERO, MENSAGENS } from '../dados/conteudo.js'
 import { Celular, Relogio, ImagemOpcional, FOTOS } from '../componentes/Aparelhos.jsx'
 import { Icone } from '../componentes/Icone.jsx'
 import { Escudo } from '../componentes/Marca.jsx'
@@ -139,7 +139,7 @@ export function Hero() {
           </h1>
           <p className="texto centro" data-revela style={{ '--i': 5 }}>{HERO.texto}</p>
           <div className="hero__acoes" data-revela style={{ '--i': 6 }}>
-            <BotaoConversa grande />
+            <BotaoConversa grande mensagem={MENSAGENS.hero} />
           </div>
           <p className="hero__selo" data-revela style={{ '--i': 7 }}>
             <Escudo cor="var(--laranja)" className="hero__selo-escudo" />

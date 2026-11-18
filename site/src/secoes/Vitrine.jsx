@@ -137,7 +137,7 @@ export function Pedido() {
   const partes = PEDIDO.extras.filter((x) => extras.includes(x)).map((x) => frases[x])
   const juntas = partes.length > 1 ? `${partes.slice(0, -1).join(', ')} e ${partes.at(-1)}` : partes[0] || ''
   const extrasTxt = juntas ? ` ${juntas.charAt(0).toUpperCase()}${juntas.slice(1)}.` : ''
-  const msg = `Oi, JV! Vim pelo site. Procuro ${plural ? 'uns' : 'um'} ${aparelho} ${estadoTxt}.${extrasTxt} Pode me passar as opções?`
+  const msg = `Olá, JV! Vim pelo site. Procuro ${plural ? 'uns' : 'um'} ${aparelho} ${estadoTxt}.${extrasTxt} Pode me passar as opções?`
   const bolha = useRef(null)
   useEffect(() => {
     if (!bolha.current) return

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Marca, Escudo } from './Marca.jsx'
 import { Icone } from './Icone.jsx'
 import { NavLiquida } from './NavLiquida.jsx'
-import { NAV, MENSAGEM_PADRAO, linkConversa, canalConversa } from '../dados/conteudo.js'
+import { NAV, MENSAGEM_PADRAO, MENSAGENS, linkConversa, canalConversa } from '../dados/conteudo.js'
 import { irPara, aoRolar } from '../lib/rolagem.js'
 
 export function Topo() {
@@ -54,7 +54,7 @@ export function Topo() {
             tone={escuro ? 'dark' : 'light'}
           />
         </div>
-        <BotaoConversa compacto />
+        <BotaoConversa compacto mensagem={MENSAGENS.topo} />
       </div>
     </header>
   )

@@ -7,6 +7,14 @@ const DIRECT = 'https://ig.me/m/jvimportsmcz'
 
 export const MENSAGEM_PADRAO = 'Olá! Vim do site de vocês, gostaria de saber mais.'
 
+// Mensagem pronta de cada botão de WhatsApp (curta, dizendo de onde a pessoa veio e o que quer)
+export const MENSAGENS = {
+  topo: 'Olá, JV! Vim pelo site e quero falar com você.',
+  hero: 'Olá! Vim pelo site e quero saber mais sobre os iPhones disponíveis.',
+  duvida: 'Olá, JV! Vim pelo site e tenho uma dúvida.',
+  final: 'Olá! Vim pelo site e quero escolher meu próximo iPhone.',
+}
+
 // O Direct do Instagram não aceita texto pré-preenchido no link (nem ig.me nem instagram.com/direct).
 // Por isso, no Direct, o clique copia a mensagem (ver Aviso.jsx) e o visitante só precisa colar.
 // Com WHATSAPP preenchido, o wa.me já leva o texto e nada é copiado.
@@ -52,7 +60,7 @@ export const BLACK = {
     { icone: 'raio', titulo: 'Carregador', texto: 'pronto para usar' },
   ],
   cta: 'Quero meu brinde',
-  mensagem: 'Olá! Vim do site de vocês e quero aproveitar a Black Friday com a garrafa de brinde.',
+  mensagem: 'Olá! Vim pelo site e quero saber mais sobre a Black Friday e a garrafa de brinde.',
   // a seção some sozinha a partir desta data (horário de Maceió, UTC-3)
   ate: '2026-12-01T00:00:00-03:00',
   video: 'promo/garrafa.mp4',
@@ -85,21 +93,21 @@ export const ANUNCIOS = {
     modelo: 'iPhone 18 Pro Max', detalhe: '256 GB · bordô, a cor nova',
     antes: 'a partir de', destaque: '18x', grande: 'R$ 635,77', nota: 'no cartão de crédito',
     cta: 'Quero o meu',
-    mensagem: 'Olá! Vim do site de vocês e quero o iPhone 18 Pro Max lacrado em 18x de R$ 635,77.',
+    mensagem: 'Olá! Vim pelo site e quero saber mais sobre o iPhone 18 Pro Max em 18x de R$ 635,77.',
   },
   seminovos: {
     selo: 'Seminovo · revisado', icone: 'bateria',
     modelo: 'Seminovos', detalhe: 'Câmeras e Face ID testados antes da entrega',
     antes: 'bateria acima de', destaque: '', grande: '90%', nota: 'de saúde em todo seminovo',
     cta: 'Ver seminovos',
-    mensagem: 'Olá! Vim do site de vocês e quero ver os iPhones seminovos disponíveis.',
+    mensagem: 'Olá! Vim pelo site e quero saber quais seminovos vocês têm disponíveis.',
   },
   assistencia: {
     selo: 'Apple e Android', icone: 'tela',
     modelo: 'Assistência', detalhe: 'Reparos com peça de qualidade e garantia',
     antes: 'troca de', destaque: '', grande: 'Tela e bateria', nota: 'e outros reparos no seu aparelho',
     cta: 'Pedir orçamento',
-    mensagem: 'Olá! Vim do site de vocês e quero um orçamento de conserto.',
+    mensagem: 'Olá! Vim pelo site e quero um orçamento de conserto para o meu aparelho.',
   },
 }
 
