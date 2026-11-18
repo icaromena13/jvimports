@@ -220,3 +220,6 @@ a.hero__etiqueta::after { content: ''; position: absolute; top: 0; bottom: 0; le
   radial-gradient(560px circle at var(--mx, 50%) var(--my, 35%), rgba(252, 98, 54, 0.2), rgba(252, 98, 54, 0.06) 45%, transparent 70%); }
 .hero.com-mouse .hero__holofote { opacity: 1; }
 .hero.com-mouse .hero__luz { transform: translate3d(var(--px, 0), var(--py, 0), 0) scale(1.06); transition: transform 0.6s var(--suave), opacity 1.6s var(--suave) 0.3s; }
+/* some suave de baixo para cima: a luz cresce (respira, segue o mouse, abre ao rolar) e não pode bater
+   seca no limite de baixo do topo */
+.hero__luz { -webkit-mask-image: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.35) 14%, #000 34%); mask-image: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.35) 14%, #000 34%); }
