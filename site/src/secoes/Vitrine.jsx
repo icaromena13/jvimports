@@ -7,13 +7,14 @@ import { useRevela, gsap } from '../lib/rolagem.js'
 
 /* ---------- telas dos três cartões ---------- */
 function TelaLacrado() {
-  const cores = [['#d9532a', 'Laranja'], ['#22324b', 'Azul'], ['#d8dadd', 'Prata'], ['#2a2b2e', 'Preto']]
+  // cores do iPhone 18 Pro Max: bordô (a nova), azul-glacial, prata e preto
+  const cores = [['#5c1a28', 'Bordô'], ['#b8cfe3', 'Azul-glacial'], ['#d8dadd', 'Prata'], ['#2a2b2e', 'Preto']]
   return (
     <div className="app app--loja">
       <div className="app__topo"><Icone nome="voltar" /><b>Lacrados</b><Icone nome="mais" /></div>
       <div className="loja__produto">
         <div className="loja__caixa">
-          <Costas className="loja__foto" />
+          <Costas tom="bordo" className="loja__foto" />
           <span className="loja__caixa-selo">Lacrado</span>
         </div>
         <p className="loja__nome">iPhone 18 Pro Max</p>

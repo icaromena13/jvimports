@@ -10,6 +10,8 @@ export const FOTOS = {
   costas: 'aparelhos/iphone-costas.webp',
   relogio: 'aparelhos/apple-watch.webp',
   mesa: 'aparelhos/mesa.webp',
+  bordo: 'aparelhos/iphone-18-bordo.webp', // iPhone 18 Pro Max bordô (recolorido da foto laranja)
+  glacial: 'aparelhos/iphone-18-glacial.webp', // iPhone 18 Pro Max azul-glacial (idem)
 }
 const estados = new Map()
 function useFoto(src) {
@@ -76,8 +78,10 @@ export function Relogio({ children, className = '' }) {
 }
 
 // iPhone de costas (foto), também em miniatura nas telas e nas "fotos das cores" da conversa
+// Sempre um iPhone 18 Pro Max: bordô (padrão) e azul-glacial são fotos; prata e preto saem da bordô com filtro
 export function Costas({ className = '', tom }) {
-  return <img className={`costas ${tom ? 'costas--' + tom : ''} ${className}`} src={FOTOS.costas} alt="" aria-hidden="true" decoding="async" />
+  const src = tom === 'glacial' ? FOTOS.glacial : FOTOS.bordo
+  return <img className={`costas ${tom ? 'costas--' + tom : ''} ${className}`} src={src} alt="" aria-hidden="true" decoding="async" />
 }
 
 // Cada foto de cliente é procurada uma vez só, no carregamento, e o resultado vale para todas as

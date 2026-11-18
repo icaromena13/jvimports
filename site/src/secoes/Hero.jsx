@@ -153,7 +153,9 @@ export function Hero() {
       <div className="hero__aparelhos" aria-hidden="true">
         <div className={`hero__palco ${fotoCostas ? 'hero__palco--com-costas' : ''}`}>
           {/* iPhone de costas (foto do ChatGPT) atrás do celular de frente */}
-          <ImagemOpcional src={FOTOS.costas} className="hero__costas" onStatus={setFotoCostas} />
+          <ImagemOpcional src={FOTOS.glacial} className="hero__costas" onStatus={setFotoCostas} />
+          {/* iPhone 18 Pro Max bordô, a cor nova, do lado direito (espelhando o azul-glacial) */}
+          <img src="aparelhos/iphone-18-bordo.webp" className="hero__novo" alt="" decoding="async" />
           <Celular className="hero__celular" escuro semBarra={false}><TelaBloqueio /></Celular>
           <Relogio className="hero__relogio"><TelaRelogio /></Relogio>
           {HERO.chips.map((c, i) => (

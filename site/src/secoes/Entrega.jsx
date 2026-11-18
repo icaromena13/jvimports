@@ -9,11 +9,11 @@ const MSGS = ENTREGA.mensagens
 
 /* ---------- conteúdos especiais das bolhas ---------- */
 function Fotos() {
-  // as três cores disponíveis: a foto laranja e as versões azul e prata tiradas dela
+  // as cores do iPhone 18 Pro Max: bordô e as versões azul-glacial e prata tiradas dela
   return (
     <span className="bolha__fotos">
-      {[undefined, 'azul', 'prata'].map((tom, i) => (
-        <span key={i} className={`bolha__cor bolha__cor--${tom || 'laranja'}`}><Costas tom={tom} /></span>
+      {['bordo', 'glacial', 'prata'].map((tom, i) => (
+        <span key={i} className={`bolha__cor bolha__cor--${tom}`}><Costas tom={tom} /></span>
       ))}
     </span>
   )

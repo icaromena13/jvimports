@@ -98,7 +98,6 @@
 /* miniaturas do iPhone de costas: as outras cores saem do laranja com filtro */
 .costas { display: block; width: 100%; height: 100%; object-fit: contain; }
 .costas--azul { filter: hue-rotate(196deg) saturate(0.75) brightness(0.62); }
-.costas--prata { filter: grayscale(1) brightness(1.32) contrast(0.9); }
 
 /* Apple Watch em CSS */
 .relogio { --w: 120px; position: relative; width: var(--w); aspect-ratio: 0.86; container-type: inline-size; }
@@ -149,3 +148,7 @@
 .foto-cliente__escudo { position: absolute; width: 78%; top: 6%; left: 50%; transform: translateX(-50%) rotate(calc((var(--n) - 4) * 3deg)); color: rgba(255, 255, 255, 0.14); }
 .foto-cliente__vazia span { position: relative; font-size: 11px; line-height: 1.35; letter-spacing: 0.02em; color: rgba(255, 255, 255, 0.7); }
 .foto-cliente__vazia b { font-weight: 600; color: #fff; }
+/* cores do iPhone 18 Pro Max tiradas da foto bordô */
+/* prata e preto saem da foto bordô, que é escura: por isso o brilho alto no prata */
+.costas--prata { filter: grayscale(1) contrast(0.7) brightness(2.35); }
+.costas--preto { filter: grayscale(1) brightness(0.7) contrast(1.1); }

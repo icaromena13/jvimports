@@ -217,7 +217,7 @@ a.hero__etiqueta::after { content: ''; position: absolute; top: 0; bottom: 0; le
 /* Computador: holofote que segue o mouse por cima da luz do horizonte */
 .hero__holofote { position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 0; transition: opacity 0.8s var(--suave); background:
   radial-gradient(260px circle at var(--mx, 50%) var(--my, 35%), rgba(255, 255, 255, 0.7), transparent 70%),
-  radial-gradient(560px circle at var(--mx, 50%) var(--my, 35%), rgba(252, 98, 54, 0.2), rgba(252, 98, 54, 0.06) 45%, transparent 70%); }
+  radial-gradient(560px circle at var(--mx, 50%) var(--my, 35%), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.08) 45%, transparent 70%); }
 .hero.com-mouse .hero__holofote { opacity: 1; }
 .hero.com-mouse .hero__luz { transform: translate3d(var(--px, 0), var(--py, 0), 0) scale(1.06); transition: transform 0.6s var(--suave), opacity 1.6s var(--suave) 0.3s; }
 /* some suave de baixo para cima: a luz cresce (respira, segue o mouse, abre ao rolar) e não pode bater
@@ -225,3 +225,12 @@ a.hero__etiqueta::after { content: ''; position: absolute; top: 0; bottom: 0; le
 .hero__luz { -webkit-mask-image: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.35) 14%, #000 34%); mask-image: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.35) 14%, #000 34%); }
 /* o fundo do topo (céu, luz e holofote) vai sumindo nos últimos ~180px, sem borda marcada embaixo */
 .hero__campo { -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 180px), rgba(0, 0, 0, 0.55) calc(100% - 90px), transparent 100%); mask-image: linear-gradient(to bottom, #000 calc(100% - 180px), rgba(0, 0, 0, 0.55) calc(100% - 90px), transparent 100%); }
+
+/* iPhone 18 Pro Max bordô (lançamento): espelha o iPhone laranja do outro lado, atrás do celular de frente */
+.hero__novo { position: absolute; width: 96%; right: -58%; top: 4%; z-index: 0; transform: scaleX(-1) rotate(-6deg); filter: drop-shadow(0 26px 30px rgba(1, 26, 49, 0.3)); pointer-events: none; }
+.hero__chip--2 { top: 62%; }
+@media (max-width: 860px) {
+  .hero__novo { width: 76%; right: -40%; top: 7%; }
+}
+/* com um iPhone de cada lado, o celular de frente volta para o centro */
+.hero__palco--com-costas .hero__celular { transform: none; }
