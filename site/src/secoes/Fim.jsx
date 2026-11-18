@@ -102,12 +102,16 @@ export function Servicos() {
 }
 
 /* ---------- Compra segura: cartão azul-marinho com o escudo 3D ---------- */
+// celular: escudo em imagem (não baixa a biblioteca 3D); computador: escudo 3D de verdade
+const ehCelular = () => typeof window !== 'undefined' && window.matchMedia('(max-width: 700px)').matches
+
 export function Seguranca() {
   const ref = useRevela()
+  const [celular] = useState(ehCelular)
   return (
     <section className="seguranca container" ref={ref} data-fundo-escuro aria-labelledby="seg-titulo">
       <div className="seguranca__cartao">
-        <Escudo3D className="seguranca__3d" />
+        {celular ? (<div className="seguranca__3d seguranca__escudo pronto" aria-hidden="true"><img src="aparelhos/escudo-3d.webp" alt="" loading="lazy" decoding="async" /><span className="seguranca__brilho" style={{ WebkitMaskImage: 'url(aparelhos/escudo-3d.webp)', maskImage: 'url(aparelhos/escudo-3d.webp)' }} /></div>) : <Escudo3D className="seguranca__3d" />}
         <div className="seguranca__texto">
           <h2 id="seg-titulo" className="titulo titulo--display"><span className="linha-mascara"><span>{SEGURANCA.titulo}</span></span></h2>
           <p className="texto centro" data-revela style={{ '--i': 1 }}>{SEGURANCA.texto}</p>

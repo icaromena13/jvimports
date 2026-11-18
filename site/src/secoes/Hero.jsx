@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import { HERO } from '../dados/conteudo.js'
-import { Tunel } from '../componentes/Tunel.jsx'
 import { Celular, Relogio, ImagemOpcional, FOTOS } from '../componentes/Aparelhos.jsx'
 import { Icone } from '../componentes/Icone.jsx'
 import { Escudo } from '../componentes/Marca.jsx'
@@ -67,6 +66,29 @@ export function Hero() {
   const progresso = useRef(0)
   const [fotoCostas, setFotoCostas] = useState(null)
 
+  // computador: holofote que segue o mouse e puxa o horizonte de leve na mesma direção
+  useEffect(() => {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return
+    const el = raiz.current
+    let quadro = 0, mx = 0.5, my = 0.35
+    const aplicar = () => {
+      quadro = 0
+      el.style.setProperty('--mx', `${(mx * 100).toFixed(2)}%`)
+      el.style.setProperty('--my', `${(my * 100).toFixed(2)}%`)
+      el.style.setProperty('--px', `${((mx - 0.5) * 30).toFixed(1)}px`)
+      el.style.setProperty('--py', `${((my - 0.5) * 16).toFixed(1)}px`)
+    }
+    const mover = (e) => {
+      const r = el.getBoundingClientRect()
+      mx = (e.clientX - r.left) / r.width
+      my = (e.clientY - r.top) / r.height
+      if (!quadro) quadro = requestAnimationFrame(aplicar)
+    }
+    el.classList.add('com-mouse')
+    el.addEventListener('pointermove', mover)
+    return () => { el.removeEventListener('pointermove', mover); cancelAnimationFrame(quadro) }
+  }, [])
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       // os aparelhos sobem de dentro do túnel conforme a rolagem
@@ -81,6 +103,7 @@ export function Hero() {
       gsap.to('.hero__chip--0', { y: -70, ease: 'none', scrollTrigger: { trigger: raiz.current, start: 'top top', end: 'bottom top', scrub: 0.8 } })
       gsap.to('.hero__chip--1', { y: -120, ease: 'none', scrollTrigger: { trigger: raiz.current, start: 'top top', end: 'bottom top', scrub: 0.8 } })
       gsap.to('.hero__chip--2', { y: -40, ease: 'none', scrollTrigger: { trigger: raiz.current, start: 'top top', end: 'bottom top', scrub: 0.8 } })
+      gsap.to('.hero__luz img', { scale: 1.45, yPercent: -8, ease: 'none', scrollTrigger: { trigger: raiz.current, start: 'top top', end: 'bottom top', scrub: 0.8 } })
       gsap.to('.hero__relogio', { y: -50, rotate: -4, ease: 'none', scrollTrigger: { trigger: raiz.current, start: 'top top', end: 'bottom top', scrub: 0.8 } })
       ScrollTrigger.create({
         trigger: raiz.current, start: 'top top', end: 'bottom top',
@@ -95,7 +118,14 @@ export function Hero() {
   return (
     <section className="hero" id="inicio" ref={raiz}>
       <div className="hero__campo">
-        <Tunel className="hero__tunel" progresso={progresso} />
+        {/* luz do horizonte: imagem do antigo túnel WebGL + animação leve em CSS */}
+        <div className="hero__tunel hero__luz" aria-hidden="true">
+          <picture>
+            <source media="(max-width: 700px)" srcSet="aparelhos/luz-cel.webp" />
+            <img src="aparelhos/luz-pc.webp" alt="" decoding="async" fetchpriority="high" />
+          </picture>
+        </div>
+        <div className="hero__holofote" aria-hidden="true" />
         <div className="hero__texto">
           {blackAtiva() ? (
             <a className="hero__etiqueta" href="#black-friday" onClick={(e) => { e.preventDefault(); irPara('#black-friday') }} data-revela style={{ '--i': 1 }}>

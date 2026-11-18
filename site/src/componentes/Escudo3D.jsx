@@ -10,7 +10,8 @@ const modulos = () => (promessaModulos ||= Promise.all([
   import('three/examples/jsm/loaders/SVGLoader.js'),
   import('three/examples/jsm/environments/RoomEnvironment.js'),
 ]))
-if (typeof window !== 'undefined') modulos()
+// só pré-carrega no computador: no celular o escudo é uma imagem e a biblioteca nem é baixada
+if (typeof window !== 'undefined' && !window.matchMedia('(max-width: 700px)').matches) modulos()
 
 export function Escudo3D({ className }) {
   const ref = useRef(null)

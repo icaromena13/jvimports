@@ -203,3 +203,20 @@ a.hero__etiqueta::after { content: ''; position: absolute; top: 0; bottom: 0; le
 @media (max-width: 480px) { .hero__etiqueta .curto { display: inline; } }
 /* botão Chamar no WhatsApp do topo: texto e ícone em branco, igual ao Quero meu brinde */
 .hero__acoes .pilula { color: #fff; font-weight: 700; text-shadow: 0 1px 2px rgba(1, 26, 49, 0.25); }
+
+/* Luz do horizonte (versão leve do túnel): a imagem "respira" devagar e um brilho pulsa no centro */
+.hero__luz { overflow: hidden; }
+.hero__luz picture, .hero__luz img { display: block; width: 100%; height: 100%; }
+.hero__luz img { object-fit: cover; object-position: 50% 62%; transform-origin: 50% 62%; will-change: transform; }
+.hero__luz picture { animation: luz-respira 7s ease-in-out infinite alternate; transform-origin: 50% 62%; }
+.hero__luz::after { content: ''; position: absolute; left: 50%; top: 62%; width: 46%; height: 22%; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(closest-side, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0)); animation: luz-pulso 3.5s ease-in-out infinite alternate; pointer-events: none; }
+@keyframes luz-respira { from { transform: scale(1); opacity: 0.88; } to { transform: scale(1.06); opacity: 1; } }
+@keyframes luz-pulso { from { opacity: 0.35; transform: translate(-50%, -50%) scale(0.9); } to { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); } }
+@media (prefers-reduced-motion: reduce) { .hero__luz picture, .hero__luz::after { animation: none; } }
+
+/* Computador: holofote que segue o mouse por cima da luz do horizonte */
+.hero__holofote { position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 0; transition: opacity 0.8s var(--suave); background:
+  radial-gradient(260px circle at var(--mx, 50%) var(--my, 35%), rgba(255, 255, 255, 0.7), transparent 70%),
+  radial-gradient(560px circle at var(--mx, 50%) var(--my, 35%), rgba(252, 98, 54, 0.2), rgba(252, 98, 54, 0.06) 45%, transparent 70%); }
+.hero.com-mouse .hero__holofote { opacity: 1; }
+.hero.com-mouse .hero__luz { transform: translate3d(var(--px, 0), var(--py, 0), 0) scale(1.06); transition: transform 0.6s var(--suave), opacity 1.6s var(--suave) 0.3s; }
