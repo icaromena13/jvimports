@@ -223,3 +223,5 @@ a.hero__etiqueta::after { content: ''; position: absolute; top: 0; bottom: 0; le
 /* some suave de baixo para cima: a luz cresce (respira, segue o mouse, abre ao rolar) e não pode bater
    seca no limite de baixo do topo */
 .hero__luz { -webkit-mask-image: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.35) 14%, #000 34%); mask-image: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.35) 14%, #000 34%); }
+/* o fundo do topo (céu, luz e holofote) vai sumindo nos últimos ~180px, sem borda marcada embaixo */
+.hero__campo { -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 180px), rgba(0, 0, 0, 0.55) calc(100% - 90px), transparent 100%); mask-image: linear-gradient(to bottom, #000 calc(100% - 180px), rgba(0, 0, 0, 0.55) calc(100% - 90px), transparent 100%); }
