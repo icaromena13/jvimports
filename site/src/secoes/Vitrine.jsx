@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { APARELHOS, PEDIDO, ECOSSISTEMA, linkConversa, canalConversa } from '../dados/conteudo.js'
+import { APARELHOS, ANUNCIOS, PEDIDO, ECOSSISTEMA, linkConversa, canalConversa } from '../dados/conteudo.js'
 import { Celular, Costas } from '../componentes/Aparelhos.jsx'
 import { Icone } from '../componentes/Icone.jsx'
 import { Escudo } from '../componentes/Marca.jsx'
@@ -19,6 +19,7 @@ function TelaLacrado() {
         </div>
         <p className="loja__nome">iPhone 18 Pro Max</p>
         <p className="loja__desc">256 GB · na caixa original</p>
+        <p className="loja__preco"><small>{ANUNCIOS.lacrados.destaque}</small><b>{ANUNCIOS.lacrados.grande}</b></p>
       </div>
       <div className="loja__cores">
         {cores.map(([c, n], i) => <span key={n} className={i === 0 ? 'ativa' : ''} style={{ '--c': c }} title={n} />)}
@@ -90,8 +91,22 @@ export function Aparelhos() {
           const chip = CHIPS[c.id]
           return (
             <article key={c.id} className={`cartao cartao--${c.tom}`} data-revela style={{ '--i': i + 2 }} id={c.id === 'assistencia' ? 'assistencia' : undefined}>
-              <h3 className="titulo titulo--cartao">{c.titulo}</h3>
-              <p className="texto">{c.texto}</p>
+              {(() => {
+                const an = ANUNCIOS[c.id]
+                return (
+                  <div className="anuncio">
+                    <span className="anuncio__selo"><Icone nome={an.icone} />{an.selo}</span>
+                    <h3 className="anuncio__modelo">{an.modelo}</h3>
+                    <p className="anuncio__detalhe">{an.detalhe}</p>
+                    <a className="anuncio__preco" href={linkConversa(an.mensagem)} data-mensagem={an.mensagem} target="_blank" rel="noopener">
+                      <small>{an.antes}</small>
+                      <span className={`anuncio__valor ${an.grande.length > 8 ? 'anuncio__valor--texto' : ''}`}>{an.destaque && <b>{an.destaque}</b>}<strong>{/^R\$ /.test(an.grande) ? (() => { const [r, c] = an.grande.slice(3).split(','); return <><i className="anuncio__moeda">R$</i>{r}<sup>,{c}</sup></> })() : an.grande}</strong></span>
+                      <em>{an.nota}</em>
+                      <span className="anuncio__cta"><Icone nome="whatsapp" />{an.cta}<Icone nome="seta" /></span>
+                    </a>
+                  </div>
+                )
+              })()}
               <div className="cartao__palco">
                 <Celular className="cartao__celular"><Tela /></Celular>
                 <div className="cartao__chip">

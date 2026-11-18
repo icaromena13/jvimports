@@ -78,6 +78,31 @@ export const CLIENTES = {
   fotos: Array.from({ length: QUANTAS_FOTOS }, (_, i) => `clientes/cliente-${String(i + 1).padStart(2, '0')}.jpg`),
 }
 
+// Os três cards de Aparelhos no formato de anúncio
+export const ANUNCIOS = {
+  lacrados: {
+    selo: 'Lacrado · na caixa', icone: 'caixa',
+    modelo: 'iPhone 18 Pro Max', detalhe: '256 GB · bordô, a cor nova',
+    antes: 'a partir de', destaque: '18x', grande: 'R$ 635,77', nota: 'no cartão de crédito',
+    cta: 'Quero o meu',
+    mensagem: 'Olá! Vim do site de vocês e quero o iPhone 18 Pro Max lacrado em 18x de R$ 635,77.',
+  },
+  seminovos: {
+    selo: 'Seminovo · revisado', icone: 'bateria',
+    modelo: 'Seminovos', detalhe: 'Câmeras e Face ID testados antes da entrega',
+    antes: 'bateria acima de', destaque: '', grande: '90%', nota: 'de saúde em todo seminovo',
+    cta: 'Ver seminovos',
+    mensagem: 'Olá! Vim do site de vocês e quero ver os iPhones seminovos disponíveis.',
+  },
+  assistencia: {
+    selo: 'Apple e Android', icone: 'tela',
+    modelo: 'Assistência', detalhe: 'Reparos com peça de qualidade e garantia',
+    antes: 'troca de', destaque: '', grande: 'Tela e bateria', nota: 'e outros reparos no seu aparelho',
+    cta: 'Pedir orçamento',
+    mensagem: 'Olá! Vim do site de vocês e quero um orçamento de conserto.',
+  },
+}
+
 export const APARELHOS = {
   titulo: ['Escolha com', 'tranquilidade'],
   texto: 'Cada aparelho chega explicado: estado, bateria, cor e o que vem na caixa.',

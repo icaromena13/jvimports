@@ -485,3 +485,44 @@
 @keyframes escudo-flutua { 0%, 100% { transform: rotateY(-12deg) translateY(0); } 50% { transform: rotateY(12deg) translateY(-10px); } }
 @keyframes escudo-brilho { 0% { background-position: 120% 0; } 45%, 100% { background-position: -20% 0; } }
 @media (prefers-reduced-motion: reduce) { .seguranca__escudo img, .seguranca__brilho { animation: none; } }
+
+/* ---------- Lacrados como anúncio: fundo escuro com bordô, parcela grande em laranja ---------- */
+.cartao--coral { background: radial-gradient(80% 55% at 85% 100%, rgba(122, 22, 44, 0.75), transparent 70%), radial-gradient(60% 45% at 0% 0%, rgba(29, 79, 135, 0.5), transparent 70%), linear-gradient(165deg, var(--azul-900), var(--azul-950)); color: #fff; }
+.anuncio { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; position: relative; z-index: 2; }
+.anuncio__selo { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 99px; background: rgba(255, 255, 255, 0.1); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--azul-300); }
+.anuncio__selo svg { width: 15px; height: 15px; color: var(--laranja); }
+.anuncio__modelo { margin: 8px 0 0; font-size: clamp(1.9rem, 1.3rem + 1.4vw, 2.6rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: #fff; }
+.anuncio__detalhe { margin: 0; font-size: 15px; color: var(--azul-300); }
+.anuncio__preco { margin-top: 14px; width: 100%; display: flex; flex-direction: column; gap: 2px; padding: 16px 18px 14px; border-radius: 20px; background: linear-gradient(135deg, rgba(252, 98, 54, 0.22), rgba(252, 98, 54, 0.06)); box-shadow: inset 0 0 0 1.5px rgba(252, 98, 54, 0.6), 0 18px 40px -20px rgba(252, 98, 54, 0.8); text-decoration: none; color: #fff; transition: transform 0.45s var(--mola), box-shadow 0.3s; }
+.anuncio__preco:hover { transform: translateY(-3px); box-shadow: inset 0 0 0 1.5px var(--laranja), 0 22px 44px -18px rgba(252, 98, 54, 0.9); }
+.anuncio__preco small { font-size: 13px; font-weight: 600; color: #ffd8c9; letter-spacing: 0.02em; }
+.anuncio__valor { display: flex; align-items: baseline; gap: 8px; line-height: 0.95; }
+.anuncio__valor b { font-size: clamp(1.6rem, 1.2rem + 1vw, 2.1rem); font-weight: 800; color: var(--laranja); letter-spacing: -0.03em; }
+.anuncio__valor strong { font-size: clamp(2.8rem, 2rem + 2.4vw, 3.9rem); font-weight: 800; color: #fff; letter-spacing: -0.05em; }
+.anuncio__preco em { font-style: normal; font-size: 13px; color: var(--azul-300); }
+.anuncio__cta { margin-top: 10px; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 99px; background: var(--laranja); color: #fff; font-size: 14.5px; font-weight: 700; text-shadow: 0 1px 2px rgba(1, 26, 49, 0.25); }
+.anuncio__cta svg { width: 17px; height: 17px; }
+.anuncio__preco:hover .anuncio__cta svg:last-child { transform: translateX(3px); }
+.anuncio__cta svg:last-child { transition: transform 0.4s var(--mola); }
+.cartao--coral .cartao__palco { height: 330px; }
+/* preço também no celular de exemplo */
+.loja__caixa { width: 36cqw; height: 36cqw; margin-bottom: 3cqw; }
+.loja__preco { margin: 2cqw auto 0; display: inline-flex; align-items: baseline; gap: 1.6cqw; padding: 1.4cqw 4cqw; border-radius: 99px; background: var(--laranja); color: #fff; }
+.loja__preco small { font-size: 3.4cqw; font-weight: 700; }
+.loja__preco b { font-size: 5cqw; font-weight: 800; letter-spacing: -0.02em; }
+.cartao--coral .cartao__chip { display: none; }
+/* os três cards no mesmo modelo de anúncio: mesmo azul-marinho, cada um com o brilho da sua cor */
+.cartao--azul, .cartao--menta { color: #fff; }
+.cartao--azul { background: radial-gradient(80% 55% at 85% 100%, rgba(120, 170, 225, 0.45), transparent 70%), radial-gradient(60% 45% at 0% 0%, rgba(29, 79, 135, 0.5), transparent 70%), linear-gradient(165deg, var(--azul-900), var(--azul-950)); }
+.cartao--menta { background: radial-gradient(80% 55% at 85% 100%, rgba(252, 98, 54, 0.4), transparent 70%), radial-gradient(60% 45% at 0% 0%, rgba(29, 79, 135, 0.5), transparent 70%), linear-gradient(165deg, var(--azul-900), var(--azul-950)); }
+.cartao .cartao__palco { height: 330px; }
+.cartao .cartao__chip { display: none; }
+.anuncio__valor--texto strong { font-size: clamp(2rem, 1.5rem + 1.5vw, 2.7rem); line-height: 1.05; }
+@media (min-width: 1081px) { .anuncio__preco { min-height: 178px; } .anuncio__cta { margin-top: auto; } .anuncio__preco em { margin-bottom: 10px; } }
+/* preço estilo anúncio: R$ pequeno, reais grandes, centavos em cima */
+.anuncio__valor strong { display: inline-flex; align-items: flex-start; }
+.anuncio__moeda { font-style: normal; font-size: 0.36em; font-weight: 700; margin: 0.32em 0.12em 0 0; color: #ffd8c9; letter-spacing: 0; }
+.anuncio__valor sup { font-size: 0.42em; font-weight: 800; margin-top: 0.12em; top: 0; position: relative; letter-spacing: -0.02em; }
+.cartao--coral .anuncio__valor strong { font-size: clamp(3.2rem, 2.2rem + 3vw, 4.6rem); color: #fff; text-shadow: 0 6px 30px rgba(252, 98, 54, 0.45); }
+.cartao--coral .anuncio__valor b { font-size: clamp(1.9rem, 1.4rem + 1.2vw, 2.5rem); }
+.cartao--coral .anuncio__preco { background: linear-gradient(135deg, rgba(252, 98, 54, 0.32), rgba(252, 98, 54, 0.08)); box-shadow: inset 0 0 0 2px var(--laranja), 0 22px 50px -18px rgba(252, 98, 54, 0.95); }
